@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://huy8c0snu1jj"]
+[gd_scene load_steps=5 format=3 uid="uid://huy8c0snu1jj"]
+
+[ext_resource type="Script" path="res://test/dialog/diag_ui.gd" id="1_c4om7"]
+[ext_resource type="Resource" uid="uid://cehcngeahifnc" path="res://test/dialog/assert/day1_morning.tres" id="2_t3nc6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aw26x"]
 bg_color = Color(0.533333, 0.643137, 0.396078, 1)
 border_color = Color(0.984218, 0.767752, 0, 1)
 border_blend = true
-corner_radius_top_left = 110
-corner_radius_top_right = 12
+corner_radius_top_left = 12
+corner_radius_top_right = 85
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 shadow_size = 32
@@ -14,9 +17,13 @@ shadow_offset = Vector2(-16.595, 12.835)
 [sub_resource type="Theme" id="Theme_17a6j"]
 Panel/styles/panel = SubResource("StyleBoxFlat_aw26x")
 
-[node name="DiagUi" type="Control"]
+[node name="DiagUi" type="Control" node_paths=PackedStringArray("char_name", "char_content")]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_c4om7")
+char_name = NodePath("Panel/name")
+char_content = NodePath("Panel/content")
+dialog_day1 = ExtResource("2_t3nc6")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -25,3 +32,21 @@ offset_top = 380.0
 offset_right = 866.0
 offset_bottom = 592.0
 theme = SubResource("Theme_17a6j")
+
+[node name="name" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 15.0
+offset_right = 98.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 24
+text = "曹操"
+
+[node name="content" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 54.0
+offset_right = 535.0
+offset_bottom = 192.0
+text = "你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！"
+autowrap_mode = 3
