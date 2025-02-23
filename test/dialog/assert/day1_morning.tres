@@ -7,36 +7,31 @@
 script = ExtResource("1_1l5nx")
 character_name = "曹操"
 content = "你哈我的朋友你哈我的朋友你哈我的朋友你哈我的朋友你哈我的朋友你哈我的朋友你哈我的朋友你哈我的朋友你哈我的朋友你哈我的朋友"
-location = Vector2(0, 0)
-animation = ""
+show = []
 
 [sub_resource type="Resource" id="Resource_tgieq"]
 script = ExtResource("1_1l5nx")
 character_name = "OK"
 content = "ASASASASASAASASASASASAASASASASASAASASASASASAASASASASASAASASASASASA"
-location = Vector2(0, 0)
-animation = ""
+show = []
 
 [sub_resource type="Resource" id="Resource_pcxw7"]
 script = ExtResource("1_1l5nx")
 character_name = "asdasd"
 content = "asdasdasdasdasdadsadadasdsadasd"
-location = Vector2(0, 0)
-animation = ""
+show = []
 
 [sub_resource type="Resource" id="Resource_upkgp"]
 script = ExtResource("1_1l5nx")
 character_name = "cxvcx"
 content = "xcvxcvcvxcvxcvcxvxcvxcvxcvxc"
-location = Vector2(0, 0)
-animation = ""
+show = []
 
 [sub_resource type="Resource" id="Resource_qm3vr"]
 script = ExtResource("1_1l5nx")
 character_name = "123213"
 content = "12312312341231231231232131232321"
-location = Vector2(0, 0)
-animation = ""
+show = []
 
 [resource]
 script = ExtResource("2_d5vlq")
