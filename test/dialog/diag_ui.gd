@@ -1,5 +1,7 @@
 extends Control
 
+
+
 @export_group("UI")
 @export var char_name:Label
 @export var char_content:Label
@@ -9,7 +11,7 @@ extends Control
 
 var dialog_index=0
 var type_time = 0.025
-var pressed=false
+var type_tween:Tween
 
 func diaplay_next_dialog():
 
@@ -17,17 +19,20 @@ func diaplay_next_dialog():
 		visible = false
 		return
 	var dialog_1:=dialog_day1.dialog_list[dialog_index]
-	
+	char_content.visible_ratio=0
 	char_name.text=dialog_1.character_name
 	char_content.text=dialog_1.content
-	if $Panel/AnimationPlayer.is_playing():
-		$Panel/AnimationPlayer.play("RESET")
-		$Panel/AnimationPlayer.stop()
-	else:
-		$Panel/AnimationPlayer.playback_default_blend_time=(type_time*dialog_1.content.length())
-		$Panel/AnimationPlayer.play("show")
-	dialog_index+=1
 	
+	if type_tween and type_tween.is_running():
+		type_tween.kill()
+		char_content.visible_ratio=1
+		dialog_index+=1
+	else:
+		char_content.visible_ratio=0
+		type_tween = get_tree().create_tween()
+		type_tween.tween_property(char_content,"visible_ratio",1,type_time*char_content.text.length())
+		type_tween.tween_callback(func():dialog_index+=1)
+		
 	
 	
 	
