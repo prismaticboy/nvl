@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhg1vxejb660a"]
+
+[ext_resource type="Texture2D" uid="uid://dty5703ootn1e" path="res://test/dialog/assert/CHAR/char2.png" id="1_aaaxn"]
+
+[node name="char2" type="Node2D"]
+position = Vector2(120, 350)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_aaaxn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

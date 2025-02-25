@@ -7,7 +7,11 @@ extends Control
 @export var char_content:Label
 
 @export_group("talk")
-@export var dialog_day1:dialog_group
+@export var dialog_day1:dialog_group=load("res://test/dialog/assert/day1_morning.tres")
+
+var character_scene
+
+var char_show=false
 
 var dialog_index=0
 var type_time = 0.025
@@ -32,17 +36,13 @@ func diaplay_next_dialog():
 		type_tween = get_tree().create_tween()
 		type_tween.tween_property(char_content,"visible_ratio",1,type_time*char_content.text.length())
 		type_tween.tween_callback(func():dialog_index+=1)
-		
-	
-	
-	
-	
-	
-	#dialog_index+=1
 	
 func _ready() -> void:
 	diaplay_next_dialog()
-	
+	var char1=load("res://test/dialog/char1.tscn")
+	var char2=load("res://test/dialog/char2.tscn")
+	add_child(char1.instantiate())
+	add_child(char2.instantiate())
 
 	
 func _input(event: InputEvent) -> void:

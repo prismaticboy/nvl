@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://j4f3ujk6r4i6"]
+[gd_scene load_steps=4 format=3 uid="uid://j4f3ujk6r4i6"]
+
+[ext_resource type="Texture2D" uid="uid://dcvk1b2rm58wk" path="res://test/dialog/assert/CHAR/1 (2).png" id="1_b5aju"]
 
 [sub_resource type="Animation" id="Animation_sqicd"]
 resource_name = "shak"
@@ -11,6 +13,8 @@ _data = {
 [node name="char1" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1000, 350)
+texture = ExtResource("1_b5aju")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
