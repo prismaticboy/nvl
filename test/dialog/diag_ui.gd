@@ -23,6 +23,12 @@ func diaplay_next_dialog():
 		visible = false
 		return
 	var dialog_1:=dialog_day1.dialog_list[dialog_index]
+	for hide in dialog_1.hide:
+		if has_node(str(hide)):
+			get_node(str(hide)).queue_free()
+	for show in dialog_1.show:
+		var show_char=load("res://test/dialog/"+str(show)+".tscn")
+		add_child(show_char.instantiate())
 	char_content.visible_ratio=0
 	char_name.text=dialog_1.character_name
 	char_content.text=dialog_1.content
@@ -39,10 +45,10 @@ func diaplay_next_dialog():
 	
 func _ready() -> void:
 	diaplay_next_dialog()
-	var char1=load("res://test/dialog/char1.tscn")
-	var char2=load("res://test/dialog/char2.tscn")
-	add_child(char1.instantiate())
-	add_child(char2.instantiate())
+	#var char1=load("res://test/dialog/char1.tscn")
+	#var char2=load("res://test/dialog/char2.tscn")
+	#add_child(char1.instantiate())
+	#add_child(char2.instantiate())
 
 	
 func _input(event: InputEvent) -> void:

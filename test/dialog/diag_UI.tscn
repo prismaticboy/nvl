@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://huy8c0snu1jj"]
+[gd_scene load_steps=6 format=3 uid="uid://huy8c0snu1jj"]
 
 [ext_resource type="Script" path="res://test/dialog/diag_ui.gd" id="1_c4om7"]
 [ext_resource type="Texture2D" uid="uid://c174ta88j073t" path="res://test/dialog/assert/BG/BG4.jpg" id="2_gqc8e"]
+[ext_resource type="AudioStream" uid="uid://rbk0k0jyha3y" path="res://test/dialog/assert/MUSIC/free68.mp3" id="3_iqri7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aw26x"]
 bg_color = Color(0.533333, 0.643137, 0.396078, 1)
@@ -54,3 +55,7 @@ offset_right = 535.0
 offset_bottom = 192.0
 text = "你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！！你好啊我的朋友！你好啊我的朋友！你好啊我的朋友！"
 autowrap_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_iqri7")
+autoplay = true
