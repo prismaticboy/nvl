@@ -47,8 +47,8 @@ func diaplay_next_dialog():
 				var show_char=load("res://test/dialog/"+str(show_name)+".tscn").instantiate()
 				show_char.set_name(show_name)
 				add_child(show_char)
-	#if dialog_1.animation!=null and dialog_1.animation!="":	
-		get_node(dialog_1.character_id+"/AnimationPlayer").play(dialog_1.animation)	
+		if dialog_1.animation!=null and dialog_1.animation!="":	
+			get_node(dialog_1.character_id+"/AnimationPlayer").play(dialog_1.animation)	
 		
 func _ready() -> void:
 	diaplay_next_dialog()
