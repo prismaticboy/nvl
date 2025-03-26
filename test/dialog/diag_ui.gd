@@ -1,6 +1,6 @@
 extends Control
 
-
+@export var save_path:String="user://saved_scene.tscn"
 
 @export_group("UI")
 @export var char_name:Label
@@ -54,6 +54,35 @@ func _ready() -> void:
 	diaplay_next_dialog()
 
 	
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed:
-			diaplay_next_dialog()
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		diaplay_next_dialog()
+
+
+func _on_load_pressed() -> void:
+	var config = ConfigFile.new()
+	var result = config.load("user://dialog.cfg")
+	if result==OK:
+		dialog_index=config.get_value("diaog","index")
+	
+	
+	#if !FileAccess.file_exists("user://SavedGame.tscn"):
+		#get_tree().change_scene_to_file("res://test/dialog/diag_UI.tscn")
+	#else:
+		#var new_scene = ResourceLoader.load("user://SavedGame.tscn").instantiate()
+		#get_tree().get_root().add_child(new_scene)
+		#self.queue_free()
+
+
+func _on_save_pressed() -> void:
+	var config = ConfigFile.new()
+	config.set_value("diaog","index",dialog_index)
+	config.save("user://dialog.cfg")	
+	
+	
+	#var node_to_save=self
+	#var scene = PackedScene.new()
+	#scene.pack(node_to_save)
+	#ResourceSaver.save(scene,"user://SavedGame.tscn")
+		#
+	pass # Replace with function body.

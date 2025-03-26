@@ -15,17 +15,13 @@ run/main_scene="res://test/dialog/diag_UI.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-TapTap="*res://addons/taptap-v4/TapTap.gd"
-
 [display]
 
 window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/taptap-v4/plugin.cfg")
+enabled=PackedStringArray()
 
 [internationalization]
 
