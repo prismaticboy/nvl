@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="school_nvl"
-run/main_scene="res://test/dialog/diag_UI.tscn"
+run/main_scene="uid://bcc6xmlbt05tf"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

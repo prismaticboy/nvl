@@ -1,0 +1,30 @@
+{
+	"max":3,
+	"1":
+		{
+			"name":"李白",
+			"pos":"left",
+			"animation":"jump",
+			"music":"sunight.ogg",
+			"sfx":"swoft.ogg",
+			"content":"国破山河在，城春草木深。感时花溅泪，恨别鸟惊心。烽火连三月，家书抵万金。白头搔更短，浑欲不胜簪。"
+		},
+	"2":
+		{
+			"name":"杜甫",
+			"pos":"right",
+			"animation":"",
+			"music":"",
+			"sfx":"happy.ogg",
+			"content":"君不见黄河之水天上来，奔流到海不复回。君不见高堂明镜悲白发，朝如青丝暮成雪。"
+		},
+	"3":
+		{
+			"name":"李白",
+			"pos":"",
+			"animation":"move_center",
+			"music":"",
+			"sfx":"",
+			"content":"人生得意须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来。"
+		},
+}
