@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/free68.mp3-65c60dad162cacef5a228a0600f7c003.m
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

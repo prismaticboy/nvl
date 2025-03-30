@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcvk1b2rm58wk"
-path="res://.godot/imported/1 (2).png-8ea48d4e0f5b114efcd970511c516602.ctex"
+path="res://.godot/imported/happy_jack.png-5c91acb5eaac36556f2c91eb7e6d84ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://test/dialog2/assert/CHAR/1 (2).png"
-dest_files=["res://.godot/imported/1 (2).png-8ea48d4e0f5b114efcd970511c516602.ctex"]
+source_file="res://test/dialog2/assert/CHAR/happy_jack.png"
+dest_files=["res://.godot/imported/happy_jack.png-5c91acb5eaac36556f2c91eb7e6d84ec.ctex"]
 
 [params]
 

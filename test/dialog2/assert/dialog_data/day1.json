@@ -2,17 +2,23 @@
 	"max":3,
 	"1":
 		{
+			"hide":"",
+			"char":"libai",
 			"name":"李白",
 			"pos":"left",
+			"emotion":"happy_cloth",
 			"animation":"jump",
-			"music":"sunight.ogg",
+			"music":"test/dialog2/assert/MUSIC/free68.mp3",
 			"sfx":"swoft.ogg",
 			"content":"国破山河在，城春草木深。感时花溅泪，恨别鸟惊心。烽火连三月，家书抵万金。白头搔更短，浑欲不胜簪。"
 		},
 	"2":
 		{
+			"hide":"",
+			"char":"dufu",
 			"name":"杜甫",
 			"pos":"right",
+			"emotion":"happy_jack",
 			"animation":"",
 			"music":"",
 			"sfx":"happy.ogg",
@@ -20,11 +26,14 @@
 		},
 	"3":
 		{
-			"name":"李白",
-			"pos":"",
+			"hide":"libai",
+			"char":"dufu",
+			"name":"杜甫",
+			"pos":"center",
+			"emotion":"",
 			"animation":"move_center",
 			"music":"",
 			"sfx":"",
 			"content":"人生得意须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来。"
-		},
+		}
 }

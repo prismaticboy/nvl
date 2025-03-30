@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsf5isdq6k6su"]
+
+[ext_resource type="Texture2D" uid="uid://bw8bv3b1yn7a8" path="res://test/dialog2/assert/CHAR/happy_cloth.png" id="1_ckl4n"]
+
+[node name="char" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ckl4n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
