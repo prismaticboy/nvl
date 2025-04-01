@@ -13,6 +13,7 @@ mouse_filter = 2
 script = ExtResource("1_pyemm")
 
 [node name="Panel" type="Panel" parent="."]
+z_index = 15
 layout_mode = 0
 offset_left = 362.0
 offset_top = 371.0
@@ -52,3 +53,5 @@ offset_bottom = 80.0
 text = "load"
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]

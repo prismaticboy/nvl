@@ -1,12 +1,12 @@
 {
-	"max":3,
+	"max":4,
 	"1":
 		{
 			"hide":"",
 			"char":"libai",
 			"name":"李白",
 			"pos":"left",
-			"emotion":"happy_cloth",
+			"emotion":"test/dialog2/assert/CHAR/char2.png",
 			"animation":"jump",
 			"music":"test/dialog2/assert/MUSIC/free68.mp3",
 			"sfx":"swoft.ogg",
@@ -18,10 +18,10 @@
 			"char":"dufu",
 			"name":"杜甫",
 			"pos":"right",
-			"emotion":"happy_jack",
+			"emotion":"test/dialog2/assert/CHAR/happy_cloth.png",
 			"animation":"",
 			"music":"",
-			"sfx":"happy.ogg",
+			"sfx":"",
 			"content":"君不见黄河之水天上来，奔流到海不复回。君不见高堂明镜悲白发，朝如青丝暮成雪。"
 		},
 	"3":
@@ -29,11 +29,23 @@
 			"hide":"libai",
 			"char":"dufu",
 			"name":"杜甫",
-			"pos":"center",
-			"emotion":"",
+			"pos":"right",
+			"emotion":"test/dialog2/assert/CHAR/1 (15).png",
 			"animation":"move_center",
-			"music":"",
+			"music":"test/dialog2/assert/MUSIC/1 (122).mp3",
 			"sfx":"",
 			"content":"人生得意须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来。"
+		},
+	"4":
+		{
+			"hide":"",
+			"char":"libai",
+			"name":"李白",
+			"pos":"center",
+			"emotion":"test/dialog2/assert/CHAR/char2.png",
+			"animation":"",
+			"music":"stop",
+			"sfx":"",
+			"content":"天生我材必有用，千金散尽还复来。"
 		}
 }

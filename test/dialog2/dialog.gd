@@ -42,6 +42,9 @@ func diaplay_next_dialog():
 		if dialog_data[str(dialog_index)]["hide"]=="" and i.name!=dialog_data[str(dialog_index)]["char"]:
 			show_char(dialog_data[str(dialog_index)]["pos"],dialog_data[str(dialog_index)]["emotion"],dialog_data[str(dialog_index)]["char"])
 			break
+		elif dialog_data[str(dialog_index)]["emotion"]!="" and i.name==dialog_data[str(dialog_index)]["char"]:
+			change_char(i,dialog_data[str(dialog_index)]["pos"],dialog_data[str(dialog_index)]["emotion"],dialog_data[str(dialog_index)]["char"])
+			break
 		else:
 			if i.name==dialog_data[str(dialog_index)]["hide"]:
 				i.queue_free()
@@ -62,11 +65,41 @@ func show_char(pos:String,emotion:String,char_name:String):
 			char.position=Vector2(600,350)
 		"right":
 			char.position=Vector2(1000,350)	
-	char.name=char_name		
+	
+	char.get_child(0).texture=load("res://"+emotion)
+	char.name=char_name
+	char.modulate.a=0.25
 	add_child(char)
+	var tween = char.create_tween()
+	tween.tween_property(char,"modulate:a",1,0.15)
 	pass
 func play_music(audio:String):
 	bgm.stop()
-	bgm.stream=load("res://"+audio)
-	bgm.play()
-	pass		
+	if audio!="stop":
+		bgm.stream=load("res://"+audio)
+		bgm.play()
+
+func change_char(old_char:Node2D,pos:String,emotion:String,char_name:String):
+	old_char.name="old"
+	var char=CHAR.instantiate()
+	match pos:
+		"left":
+			char.position=Vector2(200,350)
+		"center":
+			char.position=Vector2(600,350)
+		"right":
+			char.position=Vector2(1000,350)	
+	
+	char.get_child(0).texture=load("res://"+emotion)
+	char.name=char_name
+	char.modulate.a=0
+	add_child(char)
+	var tween = char.create_tween()
+	if emotion.find("happy")==-1:
+		tween.tween_property(char,"modulate:a",1,0.2).set_trans(tween.EASE_IN)
+		tween.tween_callback(func():old_char.queue_free())
+	else:
+		tween.set_parallel()
+		tween.tween_property(char,"modulate:a",1,0.15).set_trans(tween.EASE_IN)
+		tween.tween_property(old_char,"modulate:a",0,0.15).set_trans(tween.EASE_OUT)
+		tween.tween_callback(func():old_char.queue_free()).set_delay(0.2)
