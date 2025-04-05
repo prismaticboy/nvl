@@ -1,8 +1,8 @@
 {
-	"max":4,
+	"max":5,
 	"1":
 		{
-			"hide":"",
+			"hide":"no",
 			"char":"libai",
 			"name":"李白",
 			"pos":"left",
@@ -14,7 +14,7 @@
 		},
 	"2":
 		{
-			"hide":"",
+			"hide":"no",
 			"char":"dufu",
 			"name":"杜甫",
 			"pos":"right",
@@ -38,7 +38,19 @@
 		},
 	"4":
 		{
-			"hide":"",
+			"hide":"emotion",
+			"char":"dufu",
+			"name":"杜甫",
+			"pos":"right",
+			"emotion":"test/dialog2/assert/CHAR/1 (16).png",
+			"animation":"move_center",
+			"music":"",
+			"sfx":"",
+			"content":"人生得意须尽欢，千金散尽还复来。"
+		},
+	"5":
+		{
+			"hide":"no",
 			"char":"libai",
 			"name":"李白",
 			"pos":"center",

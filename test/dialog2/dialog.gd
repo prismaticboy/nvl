@@ -1,16 +1,15 @@
 extends Control
 
-var CHAR = preload("res://test/dialog2/char.tscn")
+@onready var CHAR = preload("res://test/dialog2/char.tscn")
 @onready var bgm: AudioStreamPlayer = $BGM
 @onready var content: Label = $Panel/content
 @onready var charname: Label = $Panel/name
 var dialog_index:int=1;
-var dialog_data
+@onready var dialog_data=load_data(dialog_index)
+
 func _ready() -> void:
-	dialog_data=load_data(dialog_index)
 	diaplay_next_dialog()
 
-	pass
 #加载json数据	
 func load_data(index:int):
 	var file_path = "res://test/dialog2/assert/dialog_data/day1.json"
@@ -38,68 +37,78 @@ func diaplay_next_dialog():
 	
 	if dialog_index>dialog_data["max"]:
 		return
-	for i in get_children():
-		if dialog_data[str(dialog_index)]["hide"]=="" and i.name!=dialog_data[str(dialog_index)]["char"]:
-			show_char(dialog_data[str(dialog_index)]["pos"],dialog_data[str(dialog_index)]["emotion"],dialog_data[str(dialog_index)]["char"])
-			break
-		elif dialog_data[str(dialog_index)]["emotion"]!="" and i.name==dialog_data[str(dialog_index)]["char"]:
-			change_char(i,dialog_data[str(dialog_index)]["pos"],dialog_data[str(dialog_index)]["emotion"],dialog_data[str(dialog_index)]["char"])
-			break
-		else:
-			if i.name==dialog_data[str(dialog_index)]["hide"]:
-				i.queue_free()
-				
-	if dialog_data[str(dialog_index)]["music"]!="":
-		play_music(dialog_data[str(dialog_index)]["music"])
+
+	show_char()
+	play_music()
 	content.text=dialog_data[str(dialog_index)]["content"]
 	charname.text=dialog_data[str(dialog_index)]["name"]
 	dialog_index+=1
 
 
-func show_char(pos:String,emotion:String,char_name:String):
-	var char=CHAR.instantiate()
-	match pos:
-		"left":
-			char.position=Vector2(200,350)
-		"center":
-			char.position=Vector2(600,350)
-		"right":
-			char.position=Vector2(1000,350)	
-	
-	char.get_child(0).texture=load("res://"+emotion)
-	char.name=char_name
-	char.modulate.a=0.25
-	add_child(char)
-	var tween = char.create_tween()
-	tween.tween_property(char,"modulate:a",1,0.15)
-	pass
-func play_music(audio:String):
-	bgm.stop()
-	if audio!="stop":
-		bgm.stream=load("res://"+audio)
-		bgm.play()
+func show_char():
+	var new_char=CHAR.instantiate()
+	var hide:String=dialog_data[str(dialog_index)]["hide"]
+	var char_name:String=dialog_data[str(dialog_index)]["char"]
+	var pos:String=dialog_data[str(dialog_index)]["pos"]
+	var emotion:String=dialog_data[str(dialog_index)]["emotion"]
+	var animation:String=dialog_data[str(dialog_index)]["animation"]
+	var node_name:Array=[]
 
-func change_char(old_char:Node2D,pos:String,emotion:String,char_name:String):
-	old_char.name="old"
-	var char=CHAR.instantiate()
 	match pos:
 		"left":
-			char.position=Vector2(200,350)
+			new_char.position=Vector2(200,350)
 		"center":
-			char.position=Vector2(600,350)
+			new_char.position=Vector2(600,350)
 		"right":
-			char.position=Vector2(1000,350)	
+			new_char.position=Vector2(1000,350)	
 	
-	char.get_child(0).texture=load("res://"+emotion)
-	char.name=char_name
-	char.modulate.a=0
-	add_child(char)
-	var tween = char.create_tween()
-	if emotion.find("happy")==-1:
-		tween.tween_property(char,"modulate:a",1,0.2).set_trans(tween.EASE_IN)
-		tween.tween_callback(func():old_char.queue_free())
-	else:
-		tween.set_parallel()
-		tween.tween_property(char,"modulate:a",1,0.15).set_trans(tween.EASE_IN)
-		tween.tween_property(old_char,"modulate:a",0,0.15).set_trans(tween.EASE_OUT)
-		tween.tween_callback(func():old_char.queue_free()).set_delay(0.2)
+	new_char.get_child(0).texture=load("res://"+emotion)
+	new_char.modulate.a=0
+	new_char.name=char_name
+	#add_child(char)
+	for node in get_children():
+		node_name.append(node.name)
+		if node.name==hide:
+			var tween=node.create_tween()
+			tween.tween_property(node,"modulate:a",0,0.2).set_ease(Tween.EASE_OUT)
+			tween.tween_callback(func():node.queue_free())
+				
+			
+	match hide:
+		"action":
+			for action in get_children():
+				if action.name==char_name:
+					action.name="old"
+					add_child(new_char)
+					var tween=new_char.create_tween()
+					tween.set_parallel(true)					
+					tween.tween_property(new_char,"modulate:a",1,0.2)
+					tween.tween_property(action,"modulate:a",0,0.2)
+					tween.tween_callback(func():action.queue_free()).set_delay(0.2)
+					break
+			pass
+		"emotion":
+			for action in get_children():
+				if action.name==char_name:
+					action.name="old"
+					add_child(new_char)
+					var tween=new_char.create_tween()
+					tween.tween_property(new_char,"modulate:a",1,0.2)
+					tween.tween_callback(func():action.queue_free())
+			pass
+		"no":
+			if node_name.find(char_name)==-1:
+				add_child(new_char)
+				var tween=new_char.create_tween()
+				tween.tween_property(new_char,"modulate:a",1,0.2)
+
+
+func play_music():
+	var audio:String=dialog_data[str(dialog_index)]["music"]
+	if audio!="":
+		bgm.stop()
+		if audio!="stop":
+			bgm.stream=load("res://"+audio)
+			bgm.play()
+func show_bg():
+	pass
