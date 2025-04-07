@@ -1,11 +1,15 @@
 extends Control
 
 @onready var CHAR = preload("res://test/dialog2/char.tscn")
+@onready var BG = preload("res://test/dialog2/background.tscn")
+@onready var dialog_ui: Control = $"."
 @onready var bgm: AudioStreamPlayer = $BGM
 @onready var content: Label = $Panel/content
 @onready var charname: Label = $Panel/name
 var dialog_index:int=1;
 @onready var dialog_data=load_data(dialog_index)
+
+var type_tween:Tween
 
 func _ready() -> void:
 	diaplay_next_dialog()
@@ -34,17 +38,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		diaplay_next_dialog()
 #显示下一个对话
 func diaplay_next_dialog():
-	
 	if dialog_index>dialog_data["max"]:
 		return
-
+	if type_tween and type_tween.is_running():
+		type_tween.kill()
+		content.text = dialog_data[str(dialog_index)]["content"]
+		dialog_index+=1
+		return
+	show_bg()
 	show_char()
 	play_music()
-	content.text=dialog_data[str(dialog_index)]["content"]
-	charname.text=dialog_data[str(dialog_index)]["name"]
-	dialog_index+=1
-
-
+	show_dialog()
+	
 func show_char():
 	var new_char=CHAR.instantiate()
 	var hide:String=dialog_data[str(dialog_index)]["hide"]
@@ -52,7 +57,9 @@ func show_char():
 	var pos:String=dialog_data[str(dialog_index)]["pos"]
 	var emotion:String=dialog_data[str(dialog_index)]["emotion"]
 	var animation:String=dialog_data[str(dialog_index)]["animation"]
+	var bg_animation = dialog_data[str(dialog_index)]["bg_animation"]
 	var node_name:Array=[]
+	
 
 	match pos:
 		"left":
@@ -63,6 +70,7 @@ func show_char():
 			new_char.position=Vector2(1000,350)	
 	
 	new_char.get_child(0).texture=load("res://"+emotion)
+	new_char.get_child(0).z_index=8
 	new_char.modulate.a=0
 	new_char.name=char_name
 	#add_child(char)
@@ -72,7 +80,21 @@ func show_char():
 			var tween=node.create_tween()
 			tween.tween_property(node,"modulate:a",0,0.2).set_ease(Tween.EASE_OUT)
 			tween.tween_callback(func():node.queue_free())
-				
+	if node_name.find(char_name)==-1:
+		add_child(new_char)
+		var tween=new_char.create_tween()
+		tween.tween_property(new_char,"modulate:a",1,0.2)
+			
+	if bg_animation!="":
+		dialog_ui.mouse_filter=Control.MOUSE_FILTER_STOP
+		await get_tree().create_timer(0.7).timeout
+		dialog_ui.mouse_filter=Control.MOUSE_FILTER_IGNORE
+		for child in get_children():
+			if child is Node2D and child.name!="background" and bg_animation!="show_center":
+				child.modulate.a=0
+				var tween=get_tree().create_tween()
+				tween.tween_property(child,"modulate:a",1,0.2)
+			
 			
 	match hide:
 		"action":
@@ -94,21 +116,45 @@ func show_char():
 					add_child(new_char)
 					var tween=new_char.create_tween()
 					tween.tween_property(new_char,"modulate:a",1,0.2)
-					tween.tween_callback(func():action.queue_free())
+					tween.tween_callback(func():action.queue_free()).set_delay(0.2)
 			pass
-		"no":
-			if node_name.find(char_name)==-1:
-				add_child(new_char)
-				var tween=new_char.create_tween()
-				tween.tween_property(new_char,"modulate:a",1,0.2)
 
 
 func play_music():
-	var audio:String=dialog_data[str(dialog_index)]["music"]
-	if audio!="":
+	var music:String=dialog_data[str(dialog_index)]["music"]
+	if music!="":
 		bgm.stop()
-		if audio!="stop":
-			bgm.stream=load("res://"+audio)
+		if music!="stop":
+			bgm.stream=load("res://"+music)
 			bgm.play()
+			bgm.volume_db=-10
+			var tween = bgm.create_tween()
+			tween.tween_property(bgm,"volume_db",0,1.5).set_ease(Tween.EASE_IN)
+			
 func show_bg():
-	pass
+	var background:String = dialog_data[str(dialog_index)]["bg"]
+	var bg_animation:String = dialog_data[str(dialog_index)]["bg_animation"]
+	var node_name:Array=[]
+	for node in get_children():
+		node_name.append(node.name)
+		if node.name=="background" and background!="":
+			node.get_node("AnimationPlayer").play(bg_animation)
+			await get_tree().create_timer(0.2).timeout
+			node.get_child(0).texture=load("res://"+background)	
+			break
+	if node_name.find("background")==-1:
+		var new_bg=BG.instantiate()
+		new_bg.name="background"
+		new_bg.get_child(0).texture=load("res://"+background)
+		add_child(new_bg)
+		new_bg.get_node("AnimationPlayer").play(bg_animation)
+
+func show_dialog():
+	var content_data = dialog_data[str(dialog_index)]["content"]
+	var char_data = dialog_data[str(dialog_index)]["name"]
+	content.text=""
+	charname.text = char_data
+	type_tween=get_tree().create_tween()
+	for character in content_data:
+		type_tween.tween_callback(func():content.text+=character).set_delay(0.015)
+	type_tween.tween_callback(func():dialog_index+=1)

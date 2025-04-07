@@ -2,60 +2,70 @@
 	"max":5,
 	"1":
 		{
-			"hide":"no",
+			"hide":"",
 			"char":"libai",
 			"name":"李白",
 			"pos":"left",
 			"emotion":"test/dialog2/assert/CHAR/char2.png",
 			"animation":"jump",
+			"bg":"test/dialog2/assert/BG/BG1.jpg",
+			"bg_animation":"show_center",
 			"music":"test/dialog2/assert/MUSIC/free68.mp3",
 			"sfx":"swoft.ogg",
 			"content":"国破山河在，城春草木深。感时花溅泪，恨别鸟惊心。烽火连三月，家书抵万金。白头搔更短，浑欲不胜簪。"
 		},
 	"2":
 		{
-			"hide":"no",
+			"hide":"libai",
 			"char":"dufu",
 			"name":"杜甫",
 			"pos":"right",
 			"emotion":"test/dialog2/assert/CHAR/happy_cloth.png",
 			"animation":"",
+			"bg":"",
+			"bg_animation":"",
 			"music":"",
 			"sfx":"",
 			"content":"君不见黄河之水天上来，奔流到海不复回。君不见高堂明镜悲白发，朝如青丝暮成雪。"
 		},
 	"3":
 		{
-			"hide":"libai",
+			"hide":"",
 			"char":"dufu",
 			"name":"杜甫",
 			"pos":"right",
 			"emotion":"test/dialog2/assert/CHAR/1 (15).png",
 			"animation":"move_center",
+			"bg":"test/dialog2/assert/BG/BG2.jpg",
+			"bg_animation":"fade_in_out",
 			"music":"test/dialog2/assert/MUSIC/1 (122).mp3",
 			"sfx":"",
 			"content":"人生得意须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来。"
 		},
 	"4":
 		{
-			"hide":"emotion",
+			"hide":"action",
 			"char":"dufu",
 			"name":"杜甫",
 			"pos":"right",
 			"emotion":"test/dialog2/assert/CHAR/1 (16).png",
 			"animation":"move_center",
+			"bg":"",
+			"bg_animation":"",
 			"music":"",
 			"sfx":"",
 			"content":"人生得意须尽欢，千金散尽还复来。"
 		},
 	"5":
 		{
-			"hide":"no",
+			"hide":"",
 			"char":"libai",
 			"name":"李白",
 			"pos":"center",
 			"emotion":"test/dialog2/assert/CHAR/char2.png",
 			"animation":"",
+			"bg":"",
+			"bg_animation":"",
 			"music":"stop",
 			"sfx":"",
 			"content":"天生我材必有用，千金散尽还复来。"
