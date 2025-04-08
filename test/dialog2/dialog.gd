@@ -6,6 +6,8 @@ extends Control
 @onready var bgm: AudioStreamPlayer = $BGM
 @onready var content: Label = $Panel/content
 @onready var charname: Label = $Panel/name
+@onready var panel: Panel = $Panel
+
 var dialog_index:int=1;
 @onready var dialog_data=load_data(dialog_index)
 
@@ -87,14 +89,14 @@ func show_char():
 			
 	if bg_animation!="":
 		dialog_ui.mouse_filter=Control.MOUSE_FILTER_STOP
-		await get_tree().create_timer(0.7).timeout
-		dialog_ui.mouse_filter=Control.MOUSE_FILTER_IGNORE
 		for child in get_children():
 			if child is Node2D and child.name!="background" and bg_animation!="show_center":
 				child.modulate.a=0
+				await get_tree().create_timer(1).timeout
 				var tween=get_tree().create_tween()
 				tween.tween_property(child,"modulate:a",1,0.2)
-			
+		
+		dialog_ui.mouse_filter=Control.MOUSE_FILTER_IGNORE			
 			
 	match hide:
 		"action":
@@ -104,8 +106,8 @@ func show_char():
 					add_child(new_char)
 					var tween=new_char.create_tween()
 					tween.set_parallel(true)					
-					tween.tween_property(new_char,"modulate:a",1,0.2)
-					tween.tween_property(action,"modulate:a",0,0.2)
+					tween.tween_property(new_char,"modulate:a",1,0.2).set_ease(Tween.EASE_IN)
+					tween.tween_property(action,"modulate:a",0,0.2).set_ease(Tween.EASE_OUT)
 					tween.tween_callback(func():action.queue_free()).set_delay(0.2)
 					break
 			pass
@@ -115,7 +117,7 @@ func show_char():
 					action.name="old"
 					add_child(new_char)
 					var tween=new_char.create_tween()
-					tween.tween_property(new_char,"modulate:a",1,0.2)
+					tween.tween_property(new_char,"modulate:a",1,0.2).set_ease(Tween.EASE_IN)
 					tween.tween_callback(func():action.queue_free()).set_delay(0.2)
 			pass
 
@@ -154,7 +156,33 @@ func show_dialog():
 	var char_data = dialog_data[str(dialog_index)]["name"]
 	content.text=""
 	charname.text = char_data
+	if dialog_data[str(dialog_index)]["bg_animation"]!="":	
+		panel.scale=Vector2(0.8,0.8)
+		panel.modulate.a=0
+		dialog_ui.mouse_filter=Control.MOUSE_FILTER_STOP
+		await get_tree().create_timer(1).timeout
+		var tween = create_tween()
+		tween.set_parallel(true)
+		tween.tween_property(panel,"scale",Vector2(1,1),0.2).set_ease(Tween.EASE_IN)
+		tween.tween_property(panel,"modulate:a",1,0.2).set_ease(Tween.EASE_IN)
+		tween.tween_callback(func():dialog_ui.mouse_filter=Control.MOUSE_FILTER_IGNORE)
 	type_tween=get_tree().create_tween()
 	for character in content_data:
-		type_tween.tween_callback(func():content.text+=character).set_delay(0.015)
+		type_tween.tween_callback(func():content.text+=character).set_delay(0.1)
 	type_tween.tween_callback(func():dialog_index+=1)
+
+
+func _on_save_pressed() -> void:
+	var config=ConfigFile.new()
+	config.set_value("game", "index", dialog_index)
+	config.set_value("game", "bg" ,get_node("background").get_child(0).texture)
+	config.save("user://scores.cfg")
+
+func _on_load_pressed() -> void:
+	var config=ConfigFile.new()
+	var err = config.load("user://scores.cfg")
+	if err != OK:
+		return
+	dialog_index = config.get_value("game", "index")
+	get_node("background").get_child(0).texture = config.get_value("game", "bg")
+	
