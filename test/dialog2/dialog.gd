@@ -124,14 +124,17 @@ func show_char():
 
 func play_music():
 	var music:String=dialog_data[str(dialog_index)]["music"]
-	if music!="":
+
+	if music!="": #and bgm.stream.resource_path!=("res://"+music):
+		var stop_tween = bgm.create_tween()
+		stop_tween.tween_property(bgm,"volume_db",-10,1.5).set_ease(Tween.EASE_OUT)
 		bgm.stop()
 		if music!="stop":
 			bgm.stream=load("res://"+music)
 			bgm.play()
 			bgm.volume_db=-10
-			var tween = bgm.create_tween()
-			tween.tween_property(bgm,"volume_db",0,1.5).set_ease(Tween.EASE_IN)
+			var start_tween = bgm.create_tween()
+			start_tween.tween_property(bgm,"volume_db",0,1.5).set_ease(Tween.EASE_IN)
 			
 func show_bg():
 	var background:String = dialog_data[str(dialog_index)]["bg"]
@@ -176,13 +179,18 @@ func _on_save_pressed() -> void:
 	var config=ConfigFile.new()
 	config.set_value("game", "index", dialog_index)
 	config.set_value("game", "bg" ,get_node("background").get_child(0).texture)
+	config.set_value("game", "bgm" ,get_node("BGM").stream)
+	config.set_value("game", "name",charname.text)
+	config.set_value("game", "content",content.text)
 	config.save("user://scores.cfg")
 
 func _on_load_pressed() -> void:
 	var config=ConfigFile.new()
 	var err = config.load("user://scores.cfg")
-	if err != OK:
-		return
 	dialog_index = config.get_value("game", "index")
 	get_node("background").get_child(0).texture = config.get_value("game", "bg")
+	get_node("BGM").stream=config.get_value("game", "bgm")
+	content.text = config.get_value("game", "content")	
+	charname.text = config.get_value("game", "name")	
+	
 	
