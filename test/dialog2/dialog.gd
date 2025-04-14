@@ -10,7 +10,7 @@ extends Control
 
 var dialog_index:int=1;
 @onready var dialog_data=load_data(dialog_index)
-
+@onready var char_list=["libai","dufu"]
 var type_tween:Tween
 
 func _ready() -> void:
@@ -125,7 +125,7 @@ func show_char():
 func play_music():
 	var music:String=dialog_data[str(dialog_index)]["music"]
 
-	if music!="": #and bgm.stream.resource_path!=("res://"+music):
+	if music!="" and bgm.stream.resource_path!=music: 
 		var stop_tween = bgm.create_tween()
 		stop_tween.tween_property(bgm,"volume_db",-10,1.5).set_ease(Tween.EASE_OUT)
 		bgm.stop()
@@ -192,5 +192,7 @@ func _on_load_pressed() -> void:
 	get_node("BGM").stream=config.get_value("game", "bgm")
 	content.text = config.get_value("game", "content")	
 	charname.text = config.get_value("game", "name")	
-	
-	
+	bgm.play()
+	for list in get_children():
+		if char_list.find(list.name)	!=-1:
+			list.queue_free()

@@ -1,22 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcc6xmlbt05tf"]
+[gd_scene load_steps=6 format=3 uid="uid://bcc6xmlbt05tf"]
 
+[ext_resource type="StyleBox" uid="uid://kcegclmthitl" path="res://test/dialog2/dialog_panel.tres" id="1_57mne"]
 [ext_resource type="Script" uid="uid://ba77si1ykfuxi" path="res://test/dialog2/dialog.gd" id="1_pyemm"]
+[ext_resource type="AudioStream" uid="uid://rbk0k0jyha3y" path="res://test/dialog2/assert/MUSIC/free68.mp3" id="2_8s3e4"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pyemm"]
-bg_color = Color(0.5451, 0.704285, 0.79, 0.286275)
-border_width_left = 12
-border_width_top = 12
-border_width_right = 12
-border_width_bottom = 12
-border_color = Color(0.633972, 0.783023, 0.863281, 0.368627)
-border_blend = true
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-shadow_color = Color(0.198, 0.2813, 0.3, 0.521569)
-shadow_size = 12
-shadow_offset = Vector2(11, 11)
+[sub_resource type="SystemFont" id="SystemFont_57mne"]
+
+[sub_resource type="Theme" id="Theme_8s3e4"]
+Button/font_sizes/font_size = 19
+Button/fonts/font = SubResource("SystemFont_57mne")
+Panel/styles/panel = ExtResource("1_57mne")
 
 [node name="DialogUi" type="Control"]
 layout_mode = 3
@@ -26,6 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = SubResource("Theme_8s3e4")
 script = ExtResource("1_pyemm")
 
 [node name="Panel" type="Panel" parent="."]
@@ -36,7 +30,6 @@ offset_top = 371.0
 offset_right = 812.0
 offset_bottom = 531.0
 pivot_offset = Vector2(225, 80)
-theme_override_styles/panel = SubResource("StyleBoxFlat_pyemm")
 
 [node name="content" type="Label" parent="Panel"]
 layout_mode = 0
@@ -91,6 +84,7 @@ offset_bottom = 79.0
 text = "加载"
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8s3e4")
 
 [node name="sfx" type="AudioStreamPlayer" parent="."]
 
