@@ -11,6 +11,7 @@ extends Control
 var dialog_index:int=1;
 @onready var dialog_data=load_data(dialog_index)
 @onready var char_list=["libai","dufu"]
+@onready var current_list=[]
 var type_tween:Tween
 
 func _ready() -> void:
@@ -177,11 +178,18 @@ func show_dialog():
 
 func _on_save_pressed() -> void:
 	var config=ConfigFile.new()
+	current_list=[]
 	config.set_value("game", "index", dialog_index)
 	config.set_value("game", "bg" ,get_node("background").get_child(0).texture)
 	config.set_value("game", "bgm" ,get_node("BGM").stream)
 	config.set_value("game", "name",charname.text)
 	config.set_value("game", "content",content.text)
+	for list in get_children():
+		if char_list.find(list.name)	!=-1:
+			current_list.append(str(list.name))
+			config.set_value(str(list.name),"pos",list.position)
+			config.set_value(str(list.name),"texture",list.get_child(0).texture)
+	config.set_value("char","name",current_list)
 	config.save("user://scores.cfg")
 
 func _on_load_pressed() -> void:
@@ -192,7 +200,26 @@ func _on_load_pressed() -> void:
 	get_node("BGM").stream=config.get_value("game", "bgm")
 	content.text = config.get_value("game", "content")	
 	charname.text = config.get_value("game", "name")	
+	
+	bgm.volume_db=-10
 	bgm.play()
+	var tween = bgm.create_tween()
+	tween.tween_property(bgm,"volume_db",0,1.5).set_ease(Tween.EASE_IN)
+	
+	current_list=config.get_value("char","name")
 	for list in get_children():
 		if char_list.find(list.name)	!=-1:
 			list.queue_free()
+		if list.name=="old":
+			list.queue_free()
+
+	for list_name in current_list:
+		var new_char = CHAR.instantiate()
+		new_char.position=config.get_value(list_name,"pos")
+		new_char.get_child(0).texture=config.get_value(list_name,"texture")
+		new_char.modulate.a=0
+		add_child(new_char)
+		var show_tween = new_char.create_tween()
+		show_tween.tween_property(new_char,"modulate:a",1,0.2).set_ease(Tween.EASE_IN)
+		show_tween.tween_callback(func():new_char.name=str(list_name))
+		
