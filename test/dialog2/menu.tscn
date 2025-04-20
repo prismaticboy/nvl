@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://q6ocmvwmgd3f"]
+
+[ext_resource type="Script" uid="uid://ugyr2lvycrtf" path="res://test/dialog2/menu.gd" id="1_1iscv"]
+
+[node name="menu" type="Control"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_1iscv")
+
+[node name="menu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 53.0
+offset_bottom = 31.0
+size_flags_vertical = 4
+text = "menu"
+
+[node name="save" type="Button" parent="."]
+offset_right = 43.0
+offset_bottom = 31.0
+text = "save"
+
+[node name="load" type="Button" parent="."]
+offset_right = 42.0
+offset_bottom = 31.0
+text = "load"
+
+[node name="quit" type="Button" parent="."]
+offset_right = 39.0
+offset_bottom = 31.0
+text = "quit"
+
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

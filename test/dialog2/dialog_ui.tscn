@@ -1,14 +1,88 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcc6xmlbt05tf"]
+[gd_scene load_steps=11 format=3 uid="uid://bcc6xmlbt05tf"]
 
 [ext_resource type="StyleBox" uid="uid://kcegclmthitl" path="res://test/dialog2/dialog_panel.tres" id="1_57mne"]
 [ext_resource type="Script" uid="uid://ba77si1ykfuxi" path="res://test/dialog2/dialog.gd" id="1_pyemm"]
 [ext_resource type="AudioStream" uid="uid://rbk0k0jyha3y" path="res://test/dialog2/assert/MUSIC/free68.mp3" id="2_8s3e4"]
+[ext_resource type="PackedScene" uid="uid://q6ocmvwmgd3f" path="res://test/dialog2/menu.tscn" id="3_sbvtq"]
 
 [sub_resource type="SystemFont" id="SystemFont_57mne"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbvtq"]
+bg_color = Color(0.257126, 0.294197, 0.535156, 0.784314)
+skew = Vector2(0.15, 0.15)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.570313, 0.570313, 0.570313, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(0.24559, 0.363092, 0.433594, 0.6)
+shadow_size = 3
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r51fu"]
+bg_color = Color(0.257126, 0.294197, 0.535156, 0.784314)
+skew = Vector2(0.15, 0.15)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.570313, 0.570313, 0.570313, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(0.24559, 0.363092, 0.433594, 0.6)
+shadow_size = 3
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dneh8"]
+bg_color = Color(0.266667, 0.313726, 0.513726, 1)
+skew = Vector2(0.15, 0.15)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 3
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uadfl"]
+bg_color = Color(0.433197, 0.477711, 0.652344, 1)
+skew = Vector2(0.15, 0.15)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(0.24559, 0.363092, 0.433594, 0.6)
+shadow_size = 3
+shadow_offset = Vector2(3, 3)
+
 [sub_resource type="Theme" id="Theme_8s3e4"]
-Button/font_sizes/font_size = 19
+Button/font_sizes/font_size = 25
 Button/fonts/font = SubResource("SystemFont_57mne")
+Button/styles/disabled = SubResource("StyleBoxFlat_sbvtq")
+Button/styles/focus = SubResource("StyleBoxFlat_r51fu")
+Button/styles/hover = SubResource("StyleBoxFlat_dneh8")
+Button/styles/normal = SubResource("StyleBoxFlat_r51fu")
+Button/styles/pressed = SubResource("StyleBoxFlat_uadfl")
 Panel/styles/panel = ExtResource("1_57mne")
 
 [node name="DialogUi" type="Control"]
@@ -21,6 +95,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme = SubResource("Theme_8s3e4")
 script = ExtResource("1_pyemm")
+metadata/_edit_lock_ = true
 
 [node name="Panel" type="Panel" parent="."]
 z_index = 10
@@ -66,27 +141,9 @@ theme_override_constants/shadow_outline_size = 2
 theme_override_font_sizes/font_size = 24
 text = "qweqweasdasd"
 
-[node name="save" type="Button" parent="."]
-z_index = 1
-layout_mode = 0
-offset_left = 1.0
-offset_top = 9.0
-offset_right = 88.0
-offset_bottom = 32.0
-text = "保存"
-
-[node name="load" type="Button" parent="."]
-z_index = 1
-layout_mode = 0
-offset_top = 48.0
-offset_right = 87.0
-offset_bottom = 79.0
-text = "加载"
+[node name="menu" parent="." instance=ExtResource("3_sbvtq")]
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_8s3e4")
 
 [node name="sfx" type="AudioStreamPlayer" parent="."]
-
-[connection signal="pressed" from="save" to="." method="_on_save_pressed"]
-[connection signal="pressed" from="load" to="." method="_on_load_pressed"]

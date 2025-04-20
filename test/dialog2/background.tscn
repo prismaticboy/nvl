@@ -142,7 +142,14 @@ libraries = {
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(0, 0, 0, 1)
 z_index = 12
-offset_right = 1168.0
-offset_bottom = 672.0
+custom_minimum_size = Vector2(1152, 648)
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
+metadata/_edit_lock_ = true
