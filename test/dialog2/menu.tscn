@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://q6ocmvwmgd3f"]
+[gd_scene load_steps=3 format=3 uid="uid://q6ocmvwmgd3f"]
 
 [ext_resource type="Script" uid="uid://ugyr2lvycrtf" path="res://test/dialog2/menu.gd" id="1_1iscv"]
+[ext_resource type="Texture2D" uid="uid://b1enft0httlj0" path="res://test/dialog2/assert/UI/button.svg" id="2_0sp06"]
 
 [node name="menu" type="Control"]
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 2
 script = ExtResource("1_1iscv")
 
 [node name="menu" type="Button" parent="."]
@@ -14,22 +16,34 @@ anchors_preset = -1
 offset_right = 53.0
 offset_bottom = 31.0
 size_flags_vertical = 4
+toggle_mode = true
+keep_pressed_outside = true
 text = "menu"
 
 [node name="save" type="Button" parent="."]
+layout_mode = 0
 offset_right = 43.0
 offset_bottom = 31.0
 text = "save"
 
 [node name="load" type="Button" parent="."]
+layout_mode = 0
 offset_right = 42.0
 offset_bottom = 31.0
 text = "load"
 
 [node name="quit" type="Button" parent="."]
+layout_mode = 0
 offset_right = 39.0
 offset_bottom = 31.0
 text = "quit"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 584.0
+offset_bottom = 120.0
+texture = ExtResource("2_0sp06")
+expand_mode = 1
 
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="save" to="." method="_on_save_pressed"]

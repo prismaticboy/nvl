@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bcc6xmlbt05tf"]
+[gd_scene load_steps=8 format=3 uid="uid://bcc6xmlbt05tf"]
 
 [ext_resource type="StyleBox" uid="uid://kcegclmthitl" path="res://test/dialog2/dialog_panel.tres" id="1_57mne"]
 [ext_resource type="Script" uid="uid://ba77si1ykfuxi" path="res://test/dialog2/dialog.gd" id="1_pyemm"]
@@ -7,43 +7,8 @@
 
 [sub_resource type="SystemFont" id="SystemFont_57mne"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbvtq"]
-bg_color = Color(0.257126, 0.294197, 0.535156, 0.784314)
-skew = Vector2(0.15, 0.15)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.570313, 0.570313, 0.570313, 1)
-border_blend = true
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-shadow_color = Color(0.24559, 0.363092, 0.433594, 0.6)
-shadow_size = 3
-shadow_offset = Vector2(3, 3)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r51fu"]
-bg_color = Color(0.257126, 0.294197, 0.535156, 0.784314)
-skew = Vector2(0.15, 0.15)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.570313, 0.570313, 0.570313, 1)
-border_blend = true
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-shadow_color = Color(0.24559, 0.363092, 0.433594, 0.6)
-shadow_size = 3
-shadow_offset = Vector2(3, 3)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dneh8"]
-bg_color = Color(0.266667, 0.313726, 0.513726, 1)
-skew = Vector2(0.15, 0.15)
+bg_color = Color(0.1536, 0.48, 0.48, 0.72549)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -58,31 +23,14 @@ shadow_color = Color(1, 1, 1, 0.6)
 shadow_size = 3
 shadow_offset = Vector2(3, 3)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uadfl"]
-bg_color = Color(0.433197, 0.477711, 0.652344, 1)
-skew = Vector2(0.15, 0.15)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 1, 1, 1)
-border_blend = true
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-shadow_color = Color(0.24559, 0.363092, 0.433594, 0.6)
-shadow_size = 3
-shadow_offset = Vector2(3, 3)
-
 [sub_resource type="Theme" id="Theme_8s3e4"]
 Button/font_sizes/font_size = 25
 Button/fonts/font = SubResource("SystemFont_57mne")
-Button/styles/disabled = SubResource("StyleBoxFlat_sbvtq")
-Button/styles/focus = SubResource("StyleBoxFlat_r51fu")
+Button/styles/disabled = SubResource("StyleBoxFlat_dneh8")
+Button/styles/focus = SubResource("StyleBoxFlat_dneh8")
 Button/styles/hover = SubResource("StyleBoxFlat_dneh8")
-Button/styles/normal = SubResource("StyleBoxFlat_r51fu")
-Button/styles/pressed = SubResource("StyleBoxFlat_uadfl")
+Button/styles/normal = SubResource("StyleBoxFlat_dneh8")
+Button/styles/pressed = SubResource("StyleBoxFlat_dneh8")
 Panel/styles/panel = ExtResource("1_57mne")
 
 [node name="DialogUi" type="Control"]

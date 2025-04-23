@@ -2,6 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://bw8bv3b1yn7a8" path="res://test/dialog2/assert/CHAR/happy_cloth.png" id="1_ckl4n"]
 
+[sub_resource type="Animation" id="Animation_x1hjq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("new:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_ckl4n"]
 resource_name = "jump"
 length = 0.5
@@ -16,21 +31,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 50), Vector2(0, 0), Vector2(0, 50), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_x1hjq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("new:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pmqdl"]
