@@ -2,94 +2,37 @@ extends Control
 
 signal save
 signal load
-var show_pos:int = 980
-var hide_pos:int = 1200
+var menu_bt_x:int=900
+var menu_bt_y:int=0
 
-@onready var menu_bt: Button = $menu
+@onready var menu_bt: Label = $menu_bt
+@onready var save_bt: Label = $save_bt
+@onready var load_bt: Label = $load_bt
+@onready var exit_bt: Label = $exit_bt
 
 
 func _ready() -> void:
-	var pos_x=20;
-	$TextureRect.size = Vector2(300,150)
 
-	$TextureRect.mouse_entered.connect(_modulate_half)
-	$TextureRect.mouse_exited.connect(_modulate_one)
-	$TextureRect.gui_input.connect(_on_ui_input)
-	for child in get_children():
-		if child is Button:
-			child.size=Vector2(120,50)
-			child.position=Vector2(show_pos,pos_x)
-			child.modulate = Color(0.699, 0.699, 0.699)
-			child.button_down.connect(_down_animation.bind(child))
-			child.button_up.connect(_up_animation.bind(child))
-			pos_x+=80
+	
 	for bt in get_children():
-		if bt is Button and bt.name!="menu":
-			bt.position.x=hide_pos
-			bt.mouse_filter=Control.MOUSE_FILTER_IGNORE
-			
-func _on_menu_pressed() -> void:
-	if $quit.position.x==hide_pos:
-		var delay = 0
-		for bt in get_children():
-			if bt is Button and bt.name!="menu":
-				var tween = bt.create_tween()
-				tween.tween_property(bt,"position:x",show_pos
-				,0.075).set_ease(Tween.EASE_IN).set_delay(delay)
-				delay+=0.03
-				tween.tween_callback(func():bt.mouse_filter=Control.MOUSE_FILTER_STOP)
-	else:
-		var delay = 0
-		for bt in get_children():
-			if bt is Button and bt.name!="menu":
-				var tween = bt.create_tween()
-				tween.tween_property(bt,"position:x",hide_pos
-				,0.075).set_ease(Tween.EASE_OUT).set_delay(delay)
-				delay+=0.03
-				tween.tween_callback(func():bt.mouse_filter=Control.MOUSE_FILTER_IGNORE)
-func button_hide():
-	for bt in get_children():
-		if bt is Button:
-			var hide_tween = bt.create_tween()
-			hide_tween.tween_property(bt,"modulate:a",0,0.2).set_ease(Tween.EASE_OUT)
-			bt.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	#await get_tree().create_timer(1).timeout			
-func button_show():
-	for bt in get_children():
-		if bt is Button and bt.name!="menu":
-			bt.position.x=hide_pos
-			bt.mouse_filter=Control.MOUSE_FILTER_STOP
-			bt.modulate.a=1
-	var menu_bt_tween=menu_bt.create_tween()
-	menu_bt_tween.tween_property(menu_bt,"modulate:a",1,0.2)
-	menu_bt.mouse_filter=Control.MOUSE_FILTER_STOP	
-func _on_quit_pressed() -> void:
-	get_tree().quit()
-	pass # Replace with function body.
+		if bt is Label:
+			bt.z_index=2
+			bt.size=Vector2(200,100)
+			bt.position=Vector2(menu_bt_x,menu_bt_y)
+			bt.mouse_entered.connect(_mouse_enter.bind(bt))
+			bt.mouse_exited.connect(_mouse_exit.bind(bt))
+			menu_bt_y+=150
 
-
-func _on_save_pressed() -> void:
-	#print(Time.get_datetime_dict_from_system())
-	emit_signal("save")
-	pass # Replace with function body.
-
-
-func _on_load_pressed() -> void:
-	emit_signal("load")
-	pass # Replace with function body.
-
-func _down_animation(bt:Button):
-	bt.modulate=Color(1.0, 1.0, 1.0)
-
-func _up_animation(bt:Button):
-	bt.modulate=Color(0.699, 0.699, 0.699)
-
-func _modulate_half():
-	$TextureRect.modulate.a=0.5
-func _modulate_one():
-	$TextureRect.modulate.a=1
-func _on_ui_input(event:InputEvent):
-	if event is InputEventMouseButton and event.is_pressed():
-		$TextureRect.modulate.a=1
-		print("hello")
-	pass
+func _mouse_enter(node:Label):
+	var tween = node.create_tween()
+	tween.tween_property(node,"theme_override_styles/normal:bg_color"
+	,Color(0.573, 0.776, 0.808)
+	,0.2).set_ease(Tween.EASE_IN)
+	#node.get("theme_override_styles/normal").bg_color=Color(0.573, 0.776, 0.808)
+	#node.modulate = Color(0.369, 0.655, 0.702)
+	#Color(0.573, 0.776, 0.808)
+func _mouse_exit(node:Label):
+	var tween = node.create_tween()
+	tween.tween_property(node,"theme_override_styles/normal:bg_color"
+	,Color(0.369, 0.655, 0.702)
+	,0.2).set_ease(Tween.EASE_OUT)

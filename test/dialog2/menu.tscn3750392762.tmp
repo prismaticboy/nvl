@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://q6ocmvwmgd3f"]
+
+[ext_resource type="Script" uid="uid://ugyr2lvycrtf" path="res://test/dialog2/menu.gd" id="1_1iscv"]
+[ext_resource type="PackedScene" uid="uid://c2r3ovdibvti5" path="res://test/dialog2/label_button.tscn" id="2_0sp06"]
+
+[node name="menu" type="Control"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_1iscv")
+
+[node name="save" parent="." instance=ExtResource("2_0sp06")]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 301.0
+text = "save"
+
+[node name="load" parent="." instance=ExtResource("2_0sp06")]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 301.0
+text = "load"
+
+[node name="exit" parent="." instance=ExtResource("2_0sp06")]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 100.0
+text = "exit"

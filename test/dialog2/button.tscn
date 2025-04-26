@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://chwb1cgftkyi6"]
+
+[ext_resource type="Texture2D" uid="uid://b1enft0httlj0" path="res://test/dialog2/assert/UI/button.svg" id="1_acyl3"]
+[ext_resource type="Shader" uid="uid://el7e2kmqs60b" path="res://test/dialog2/button.gdshader" id="1_b7icg"]
+[ext_resource type="Script" uid="uid://dghk2of4rogyk" path="res://test/dialog2/button.gd" id="2_8cyr8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tj5vs"]
+shader = ExtResource("1_b7icg")
+shader_parameter/outline_width = 0.0
+shader_parameter/lower_limit = Vector2(0, 0)
+shader_parameter/upper_limit = Vector2(0, 0)
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[node name="button" type="TextureRect"]
+material = SubResource("ShaderMaterial_tj5vs")
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0.5, 0.5)
+texture = ExtResource("1_acyl3")
+expand_mode = 1
+script = ExtResource("2_8cyr8")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 66
+text = "123123123"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
