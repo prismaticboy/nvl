@@ -16,6 +16,8 @@ func _ready() -> void:
 	menu_bt.connect("gui_input",_menu_input)
 	exit_bt.connect("gui_input",_exit_input)
 	#menu_bt.gui_input.connect(_menu_input)
+	
+	_menu_hide()
 	for bt in get_children():
 		if bt is Label:
 			bt.z_index=2
@@ -61,19 +63,21 @@ func _menu_hide():
 			var tween = bt.create_tween()
 			tween.set_parallel(true)
 			tween.tween_property(bt,"position:x"
-			,1000,0.04).set_delay(delay).set_ease(tween.EASE_OUT)
+			,950,0.04).set_delay(delay).set_ease(tween.EASE_OUT)
 			tween.tween_property(bt,"modulate:a"
 			,0,0.04).set_delay(delay).set_ease(tween.EASE_OUT)
 			bt.mouse_filter=Label.MOUSE_FILTER_IGNORE
 			delay+=0.04
 
 func _menu_input(event):
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_LEFT:
 		if flag:
 			_menu_show()
 		else:
 			_menu_hide()
-			
+	if event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_RIGHT:
+		if flag==false:
+			_menu_hide()		
 			
 func _exit_input(event):
 	if (event is InputEventScreenTouch and event.pressed) or (event is InputEventMouseButton and event.pressed):

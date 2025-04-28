@@ -77,3 +77,41 @@ offset_right = 200.0
 offset_bottom = 100.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_di806")
 text = "exit"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemList" type="ScrollContainer" parent="Control"]
+layout_mode = 1
+offset_left = 248.0
+offset_top = 64.0
+offset_right = 480.0
+offset_bottom = 276.0
+follow_focus = true
+draw_focus_border = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ItemList"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label5" type="Label" parent="Control/ItemList/VBoxContainer"]
+layout_mode = 2
+text = "save_menu"
+
+[node name="Label2" parent="Control/ItemList/VBoxContainer" instance=ExtResource("2_0sp06")]
+layout_mode = 2
+
+[node name="Label" parent="Control/ItemList/VBoxContainer" instance=ExtResource("2_0sp06")]
+layout_mode = 2
+
+[node name="Label3" parent="Control/ItemList/VBoxContainer" instance=ExtResource("2_0sp06")]
+layout_mode = 2
+
+[node name="Label4" parent="Control/ItemList/VBoxContainer" instance=ExtResource("2_0sp06")]
+layout_mode = 2
