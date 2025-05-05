@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjto7ffuaq4f0"]
+
+[ext_resource type="Shader" uid="uid://dpkmduxtlrhaa" path="res://test/dialog2/setting.gdshader" id="1_q1nhf"]
+[ext_resource type="Script" uid="uid://b0gpehi2kj42t" path="res://test/dialog2/texturebutton.gd" id="1_ro1q1"]
+[ext_resource type="Texture2D" uid="uid://bcv0ghfly3scn" path="res://test/dialog2/assert/UI/load.svg" id="2_wxx1k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q1nhf"]
+shader = ExtResource("1_q1nhf")
+shader_parameter/clr = Color(1, 1, 1, 0)
+shader_parameter/type = 1
+shader_parameter/thickness = 10.0
+
+[node name="texturebutton" type="TextureRect"]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_q1nhf")
+custom_minimum_size = Vector2(50, 50)
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+script = ExtResource("1_ro1q1")
+picture = ExtResource("2_wxx1k")

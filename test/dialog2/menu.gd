@@ -32,9 +32,7 @@ func _mouse_enter(node:Label):
 	tween.tween_property(node,"theme_override_styles/normal:bg_color"
 	,Color(0.573, 0.776, 0.808)
 	,0.1).set_ease(Tween.EASE_IN)
-	#node.get("theme_override_styles/normal").bg_color=Color(0.573, 0.776, 0.808)
-	#node.modulate = Color(0.369, 0.655, 0.702)
-	#Color(0.573, 0.776, 0.808)
+
 func _mouse_exit(node:Label):
 	var tween = node.create_tween()
 	tween.tween_property(node,"theme_override_styles/normal:bg_color"
