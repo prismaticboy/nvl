@@ -1,5 +1,5 @@
-extends TextureRect
 
+extends TextureRect
 
 @export var picture:Texture2D
 
