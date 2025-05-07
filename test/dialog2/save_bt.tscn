@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://7bml2d1bit4v"]
+
+[ext_resource type="Texture2D" uid="uid://v5136xox28yv" path="res://test/dialog2/assert/BG/BG1.jpg" id="1_4g81j"]
+[ext_resource type="Texture2D" uid="uid://svbymdakbx3x" path="res://icon.svg" id="1_7px53"]
+
+[node name="save_bt" type="Panel"]
+custom_minimum_size = Vector2(230, 128)
+offset_right = 230.0
+offset_bottom = 128.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(952, 536)
+texture = ExtResource("1_4g81j")
+
+[node name="number" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 8.0
+offset_right = 215.0
+offset_bottom = 31.0
+text = "NO.1"
+
+[node name="dialog_data" type="Label" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 41.0
+offset_right = 224.0
+offset_bottom = 90.0
+text = "你好啊我的朋友"
+autowrap_mode = 3
+
+[node name="time" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 98.0
+offset_right = 215.0
+offset_bottom = 121.0
+text = "123123"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7px53")
+offset = Vector2(64, 64)

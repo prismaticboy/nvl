@@ -9,8 +9,8 @@ uniform vec4 color : source_color;
 
 void vertex() {
 	vec2 disp;
-	
-	// resizes the 
+
+	// resizes the
 	switch (VERTEX_ID)
 	{
 		case 0:
@@ -26,13 +26,13 @@ void vertex() {
 			disp = vec2(upper_limit.x, lower_limit.y);
 			break;
 	}
-	
+
 	VERTEX = disp;
 }
 
 void fragment() {
 	float alpha;
-	
+
 	// use sdf to calculate the alpha of the highlight
 	alpha = 1.0 - texture_sdf(screen_uv_to_sdf(SCREEN_UV)) / float(outline_width);
 	COLOR = color;
