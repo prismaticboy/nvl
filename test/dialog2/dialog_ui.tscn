@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcc6xmlbt05tf"]
+[gd_scene load_steps=9 format=3 uid="uid://bcc6xmlbt05tf"]
 
 [ext_resource type="StyleBox" uid="uid://kcegclmthitl" path="res://test/dialog2/dialog_panel.tres" id="1_57mne"]
 [ext_resource type="Script" uid="uid://ba77si1ykfuxi" path="res://test/dialog2/dialog.gd" id="1_pyemm"]
 [ext_resource type="AudioStream" uid="uid://rbk0k0jyha3y" path="res://test/dialog2/assert/MUSIC/free68.mp3" id="2_8s3e4"]
-[ext_resource type="PackedScene" uid="uid://q6ocmvwmgd3f" path="res://test/dialog2/menu.tscn" id="3_sbvtq"]
+[ext_resource type="PackedScene" uid="uid://bncm2j60fd80m" path="res://test/dialog2/menu.tscn" id="3_sbvtq"]
+[ext_resource type="PackedScene" uid="uid://7bml2d1bit4v" path="res://test/dialog2/save_bt.tscn" id="5_7gxoc"]
 
 [sub_resource type="SystemFont" id="SystemFont_57mne"]
 
@@ -89,9 +90,17 @@ theme_override_constants/shadow_outline_size = 2
 theme_override_font_sizes/font_size = 24
 text = "qweqweasdasd"
 
-[node name="menu" parent="." instance=ExtResource("3_sbvtq")]
-
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_8s3e4")
 
 [node name="sfx" type="AudioStreamPlayer" parent="."]
+
+[node name="menu" parent="." instance=ExtResource("3_sbvtq")]
+z_index = 1
+layout_mode = 1
+
+[node name="save_bt" parent="." instance=ExtResource("5_7gxoc")]
+layout_mode = 0
+anchors_preset = 0
+grow_horizontal = 1
+grow_vertical = 1

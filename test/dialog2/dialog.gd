@@ -17,8 +17,8 @@ var type_tween:Tween
 func _ready() -> void:
 	diaplay_next_dialog()
 	var menu = get_node("menu")
-	menu.save.connect(_on_save_pressed)
-	menu.load.connect(_on_load_pressed)
+	#menu.save.connect(_on_save_pressed)
+	#menu.load.connect(_on_load_pressed)
 
 #加载json数据	
 func load_data(index:int):

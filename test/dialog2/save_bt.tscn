@@ -1,59 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://7bml2d1bit4v"]
+[gd_scene load_steps=3 format=3 uid="uid://7bml2d1bit4v"]
 
-[ext_resource type="Texture2D" uid="uid://v5136xox28yv" path="res://test/dialog2/assert/BG/BG1.jpg" id="1_4g81j"]
-[ext_resource type="Texture2D" uid="uid://dvufiydl0vool" path="res://test/dialog2/assert/CHAR/1 (3).png" id="3_ltk6h"]
 [ext_resource type="Script" uid="uid://c5tkptn3oyffy" path="res://test/dialog2/canvas_layer.gd" id="4_ltk6h"]
 
-[node name="save_bt" type="Panel"]
-custom_minimum_size = Vector2(230, 128)
-offset_right = 230.0
-offset_bottom = 128.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfdil"]
+bg_color = Color(0.221695, 0.652344, 0.652344, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.140625, 0.140625, 0.140625, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(1, 1, 1, 0)
+shadow_size = 5
 
-[node name="Sprite" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(952, 536)
-texture = ExtResource("1_4g81j")
+[node name="save_bt" type="Panel"]
+z_index = 1
+custom_minimum_size = Vector2(230, 128)
+anchors_preset = -1
+offset_right = 496.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tfdil")
 
 [node name="number" type="Label" parent="."]
-layout_mode = 0
-offset_left = 160.0
+offset_left = 320.0
 offset_top = 8.0
-offset_right = 215.0
+offset_right = 359.0
 offset_bottom = 31.0
 text = "NO.1"
 
 [node name="dialog_data" type="Label" parent="."]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 41.0
-offset_right = 224.0
-offset_bottom = 90.0
-text = "你好啊我的朋友"
+custom_minimum_size = Vector2(152, 80)
+offset_left = 320.0
+offset_top = 32.0
+offset_right = 472.0
+offset_bottom = 133.0
+text = "你好啊我的朋友你好啊我的朋友你好啊我的朋友你你好啊我的朋友你"
 autowrap_mode = 3
 
 [node name="time" type="Label" parent="."]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 98.0
-offset_right = 215.0
-offset_bottom = 121.0
-text = "123123"
-
-[node name="player" type="Sprite2D" parent="."]
-position = Vector2(552, 344)
-texture = ExtResource("3_ltk6h")
+offset_left = 320.0
+offset_top = 144.0
+offset_right = 489.0
+offset_bottom = 167.0
+text = "time:2025-05-11 20:43"
 
 [node name="view" type="CanvasLayer" parent="."]
 script = ExtResource("4_ltk6h")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="view"]
-anchors_preset = -1
-offset_left = 360.0
-offset_top = 120.0
-offset_right = 648.0
-offset_bottom = 282.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 304.0
+offset_bottom = 178.0
 
 [node name="SubViewport" type="SubViewport" parent="view/SubViewportContainer"]
 handle_input_locally = false

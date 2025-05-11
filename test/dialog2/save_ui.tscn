@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dswsyy4foubse"]
-
-[ext_resource type="PackedScene" uid="uid://7bml2d1bit4v" path="res://test/dialog2/save_bt.tscn" id="1_4n5ad"]
+[gd_scene format=3 uid="uid://dswsyy4foubse"]
 
 [node name="save_ui" type="Control"]
 layout_mode = 3
@@ -9,6 +7,3 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="save_bt" parent="." instance=ExtResource("1_4n5ad")]
-layout_mode = 0

@@ -1,85 +1,101 @@
-[gd_scene load_steps=8 format=3 uid="uid://q6ocmvwmgd3f"]
+[gd_scene load_steps=14 format=3 uid="uid://bncm2j60fd80m"]
 
 [ext_resource type="Script" uid="uid://ugyr2lvycrtf" path="res://test/dialog2/menu.gd" id="1_1iscv"]
-[ext_resource type="PackedScene" uid="uid://c2r3ovdibvti5" path="res://test/dialog2/label_button.tscn" id="2_0sp06"]
-[ext_resource type="PackedScene" uid="uid://bncm2j60fd80m" path="res://test/dialog2/save_menu.tscn" id="3_japwc"]
+[ext_resource type="PackedScene" uid="uid://bjto7ffuaq4f0" path="res://test/dialog2/texturebutton.tscn" id="2_pqshd"]
+[ext_resource type="Texture2D" uid="uid://belov4pmmg5a7" path="res://test/dialog2/assert/UI/menu.svg" id="3_shb0t"]
+[ext_resource type="Shader" uid="uid://dpkmduxtlrhaa" path="res://test/dialog2/setting.gdshader" id="4_k5exa"]
+[ext_resource type="Texture2D" uid="uid://bcv0ghfly3scn" path="res://test/dialog2/assert/UI/load.svg" id="5_cb23m"]
+[ext_resource type="Texture2D" uid="uid://b2wfkseqyealg" path="res://test/dialog2/assert/UI/save.svg" id="6_bcn7c"]
+[ext_resource type="Texture2D" uid="uid://bw61nupjfrrvs" path="res://test/dialog2/assert/UI/log.svg" id="7_b06p8"]
+[ext_resource type="Texture2D" uid="uid://cds85l7bemtdv" path="res://test/dialog2/assert/UI/setting.svg" id="8_vfohh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sp06"]
-bg_color = Color(0.368627, 0.654902, 0.701961, 1)
-border_width_left = 12
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-shadow_color = Color(0, 0.60025, 0.863281, 0.6)
-shadow_size = 2
-shadow_offset = Vector2(0.09, 0.095)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mokkv"]
+bg_color = Color(0.25098, 0.6, 0.552941, 0.898039)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_japwc"]
-bg_color = Color(0.368627, 0.654902, 0.701961, 1)
-border_width_left = 12
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-shadow_color = Color(0, 0.60025, 0.863281, 0.6)
-shadow_size = 2
-shadow_offset = Vector2(0.09, 0.095)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rkjc8"]
+shader = ExtResource("4_k5exa")
+shader_parameter/clr = Color(1, 1, 1, 0)
+shader_parameter/type = 1
+shader_parameter/thickness = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jd7up"]
-bg_color = Color(0.368627, 0.654902, 0.701961, 1)
-border_width_left = 12
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-shadow_color = Color(0, 0.60025, 0.863281, 0.6)
-shadow_size = 2
-shadow_offset = Vector2(0.09, 0.095)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_of02i"]
+shader = ExtResource("4_k5exa")
+shader_parameter/clr = Color(1, 1, 1, 0)
+shader_parameter/type = 1
+shader_parameter/thickness = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_di806"]
-bg_color = Color(0.368627, 0.654902, 0.701961, 1)
-border_width_left = 12
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-shadow_color = Color(0, 0.60025, 0.863281, 0.6)
-shadow_size = 2
-shadow_offset = Vector2(0.09, 0.095)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kosuf"]
+shader = ExtResource("4_k5exa")
+shader_parameter/clr = Color(1, 1, 1, 0)
+shader_parameter/type = 1
+shader_parameter/thickness = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mokkv"]
+shader = ExtResource("4_k5exa")
+shader_parameter/clr = Color(1, 1, 1, 0)
+shader_parameter/type = 1
+shader_parameter/thickness = 10.0
 
 [node name="menu" type="Control"]
-z_index = 1
+custom_minimum_size = Vector2(1152, 648)
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_1iscv")
 
-[node name="menu_bt" parent="." instance=ExtResource("2_0sp06")]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 200.0
-offset_bottom = 100.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_0sp06")
-text = "menu"
+offset_left = 1100.0
+offset_top = 100.0
+offset_right = 1150.0
+offset_bottom = 150.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mokkv")
 
-[node name="save_bt" parent="." instance=ExtResource("2_0sp06")]
+[node name="menu" parent="." instance=ExtResource("2_pqshd")]
 layout_mode = 0
-offset_right = 200.0
-offset_bottom = 301.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_japwc")
-text = "save"
+offset_right = 50.0
+offset_bottom = 50.0
+picture = ExtResource("3_shb0t")
 
-[node name="load_bt" parent="." instance=ExtResource("2_0sp06")]
+[node name="save" parent="." instance=ExtResource("2_pqshd")]
+material = SubResource("ShaderMaterial_rkjc8")
 layout_mode = 0
-offset_right = 200.0
-offset_bottom = 301.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_jd7up")
-text = "load"
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("5_cb23m")
 
-[node name="exit_bt" parent="." instance=ExtResource("2_0sp06")]
+[node name="load" parent="." instance=ExtResource("2_pqshd")]
+material = SubResource("ShaderMaterial_of02i")
 layout_mode = 0
-offset_right = 200.0
-offset_bottom = 100.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_di806")
-text = "exit"
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("6_bcn7c")
+picture = ExtResource("6_bcn7c")
 
-[node name="Control" parent="." instance=ExtResource("3_japwc")]
-layout_mode = 1
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="log" parent="." instance=ExtResource("2_pqshd")]
+material = SubResource("ShaderMaterial_kosuf")
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("7_b06p8")
+picture = ExtResource("7_b06p8")
+
+[node name="setting" parent="." instance=ExtResource("2_pqshd")]
+material = SubResource("ShaderMaterial_mokkv")
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("8_vfohh")
+picture = ExtResource("8_vfohh")
