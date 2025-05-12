@@ -12,9 +12,10 @@ var flag=false
 var delay=0.0
 func _ready() -> void:
 	
-	menu.gui_input.connect(_on_gui_input.bind(menu))
+	#menu.gui_input.connect(_on_gui_input.bind(menu))
 	for bt in get_children():
 		if bt is TextureRect:
+			bt.gui_input.connect(_on_gui_input.bind(bt))
 			bt.mouse_entered.connect(_on_mouse_entered.bind(bt))
 			bt.mouse_exited.connect(_on_mouse_exited.bind(bt))
 			bt.position.x=1100
@@ -48,6 +49,9 @@ func _on_gui_input(event,node:TextureRect):
 				menu_hide()
 			else:
 				menu_show()
+		if node.name=="save":
+			var save_menu = load("res://test/dialog2/save_ui.tscn").instantiate()
+			add_child(save_menu)
 
 func menu_hide_init():
 	for bt in get_children():

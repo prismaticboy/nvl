@@ -1,9 +1,32 @@
-[gd_scene format=3 uid="uid://dswsyy4foubse"]
+[gd_scene load_steps=3 format=3 uid="uid://dswsyy4foubse"]
+
+[ext_resource type="Script" uid="uid://cflqq7guupu5s" path="res://test/dialog2/save_ui.gd" id="1_4n5ad"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4n5ad"]
+bg_color = Color(0.628662, 0.804688, 0.788185, 1)
 
 [node name="save_ui" type="Control"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_4n5ad")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4n5ad")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 56
+text = "SAVE MENU"

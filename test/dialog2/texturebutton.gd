@@ -5,3 +5,4 @@ extends TextureRect
 
 func _ready() -> void:
 	texture=picture
+	
