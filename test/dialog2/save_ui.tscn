@@ -15,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4n5ad")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="save_bg" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,5 +28,5 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_4n5ad")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-theme_override_font_sizes/font_size = 56
+theme_override_font_sizes/font_size = 80
 text = "SAVE MENU"

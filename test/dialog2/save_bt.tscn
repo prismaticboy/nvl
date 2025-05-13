@@ -1,14 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://7bml2d1bit4v"]
+[gd_scene load_steps=5 format=3 uid="uid://7bml2d1bit4v"]
 
+[ext_resource type="FontFile" uid="uid://j3lj6v66mja3" path="res://test/dialog2/assert/font/NotoSansSC-Bold.ttf" id="1_4g81j"]
 [ext_resource type="Script" uid="uid://ggxwb6j1wx13" path="res://test/dialog2/sub_viewport_container.gd" id="1_7px53"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfdil"]
-bg_color = Color(0.221695, 0.652344, 0.652344, 1)
+bg_color = Color(0.533524, 0.738281, 0.666296, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.140625, 0.140625, 0.140625, 1)
+border_color = Color(1, 1, 1, 1)
 border_blend = true
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -16,6 +17,9 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 shadow_color = Color(1, 1, 1, 0)
 shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltk6h"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="save_bt" type="Panel"]
 z_index = 1
@@ -27,27 +31,31 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tfdil")
 [node name="number" type="Label" parent="."]
 layout_mode = 0
 offset_left = 184.0
-offset_top = 8.0
+offset_top = 24.0
 offset_right = 223.0
-offset_bottom = 31.0
+offset_bottom = 47.0
 text = "NO.1"
 
 [node name="dialog_data" type="Label" parent="."]
 custom_minimum_size = Vector2(152, 40)
 layout_mode = 0
 offset_left = 184.0
-offset_top = 32.0
+offset_top = 56.0
 offset_right = 456.0
-offset_bottom = 81.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(0.363281, 0.363281, 0.363281, 1)
+theme_override_fonts/font = ExtResource("1_4g81j")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_ltk6h")
 text = "你好啊我的朋友你好啊我的朋友你好啊我的朋友你你好啊我的朋友你"
 autowrap_mode = 3
 
 [node name="time" type="Label" parent="."]
 layout_mode = 0
-offset_left = 184.0
-offset_top = 88.0
-offset_right = 353.0
-offset_bottom = 111.0
+offset_left = 280.0
+offset_top = 24.0
+offset_right = 449.0
+offset_bottom = 47.0
 text = "time:2025-05-11 20:43"
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
