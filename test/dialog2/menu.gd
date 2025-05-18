@@ -50,8 +50,10 @@ func _on_gui_input(event,node:TextureRect):
 			else:
 				menu_show()
 		if node.name=="save":
-			var save_menu = load("res://test/dialog2/save_ui.tscn").instantiate()
-			add_child(save_menu)
+			if $"../save_ui".visible==false:
+				$"../save_ui".show_save_menu()
+			else:
+				$"../save_ui".hide_save_menu()
 
 func menu_hide_init():
 	for bt in get_children():

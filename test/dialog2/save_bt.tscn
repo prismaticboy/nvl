@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://7bml2d1bit4v"]
+[gd_scene load_steps=6 format=3 uid="uid://7bml2d1bit4v"]
 
 [ext_resource type="FontFile" uid="uid://j3lj6v66mja3" path="res://test/dialog2/assert/font/NotoSansSC-Bold.ttf" id="1_4g81j"]
 [ext_resource type="Script" uid="uid://ggxwb6j1wx13" path="res://test/dialog2/sub_viewport_container.gd" id="1_7px53"]
+[ext_resource type="Script" uid="uid://bp4hwrvnlr5hu" path="res://test/dialog2/save_bt.gd" id="1_tfdil"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfdil"]
 bg_color = Color(0.533524, 0.738281, 0.666296, 1)
@@ -27,6 +28,7 @@ custom_minimum_size = Vector2(230, 128)
 offset_right = 464.0
 offset_bottom = 128.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_tfdil")
+script = ExtResource("1_tfdil")
 
 [node name="number" type="Label" parent="."]
 layout_mode = 0
@@ -56,9 +58,10 @@ offset_left = 280.0
 offset_top = 24.0
 offset_right = 449.0
 offset_bottom = 47.0
-text = "time:2025-05-11 20:43"
+text = "时间:---------- --:--"
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 24.0
 offset_right = 160.0
@@ -71,5 +74,4 @@ size = Vector2i(144, 81)
 render_target_update_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
-position = Vector2(576, 324)
 zoom = Vector2(0.125, 0.125)

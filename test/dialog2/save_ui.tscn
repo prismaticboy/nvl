@@ -6,7 +6,6 @@
 bg_color = Color(0.628662, 0.804688, 0.788185, 1)
 
 [node name="save_ui" type="Control"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,3 +29,11 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 80
 text = "SAVE MENU"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1048.0
+offset_top = 544.0
+offset_right = 1148.0
+offset_bottom = 644.0
+text = "return"
