@@ -11,7 +11,6 @@ var pos_y=100
 var flag=false
 var delay=0.0
 func _ready() -> void:
-	
 	menu.gui_input.connect(_on_gui_input.bind(menu))
 	for bt in get_children():
 		if bt is TextureRect:

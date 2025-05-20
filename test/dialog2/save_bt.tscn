@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://7bml2d1bit4v"]
+[gd_scene load_steps=7 format=3 uid="uid://7bml2d1bit4v"]
 
 [ext_resource type="FontFile" uid="uid://j3lj6v66mja3" path="res://test/dialog2/assert/font/NotoSansSC-Bold.ttf" id="1_4g81j"]
 [ext_resource type="Script" uid="uid://ggxwb6j1wx13" path="res://test/dialog2/sub_viewport_container.gd" id="1_7px53"]
 [ext_resource type="Script" uid="uid://bp4hwrvnlr5hu" path="res://test/dialog2/save_bt.gd" id="1_tfdil"]
+[ext_resource type="Texture2D" uid="uid://v5136xox28yv" path="res://test/dialog2/assert/BG/BG1.jpg" id="4_ltk6h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfdil"]
 bg_color = Color(0.533524, 0.738281, 0.666296, 1)
@@ -75,3 +76,13 @@ render_target_update_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
 zoom = Vector2(0.125, 0.125)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 160.0
+offset_bottom = 104.0
+texture = ExtResource("4_ltk6h")
+expand_mode = 1
