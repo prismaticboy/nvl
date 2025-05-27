@@ -42,7 +42,10 @@ func show_save_menu():
 	,save_delay).set_ease(Tween.EASE_IN)
 	tween.tween_property(self,"modulate:a",1,
 	save_delay).set_ease(Tween.EASE_IN)
-	
+	for bt in get_children():
+		if bt is Panel and bt.name!="save_bg":
+			bt.load_bt_status()
+			
 func hide_save_menu():
 	var tween = create_tween()
 	tween.set_parallel(true)
@@ -53,7 +56,7 @@ func hide_save_menu():
 	tween.tween_callback(func():
 		visible=false
 		z_index=0).set_delay(0.5)
-	
+		
 	#visible=false
 	#z_index=0
 		

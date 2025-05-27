@@ -20,6 +20,9 @@ func _ready() -> void:
 	#menu.save.connect(_on_save_pressed)
 	#menu.load.connect(_on_load_pressed)
 
+func hit():
+	print(123)	
+	
 #加载json数据	
 func load_data(index:int):
 	var file_path = "res://test/dialog2/assert/dialog_data/day1.json"
@@ -175,7 +178,7 @@ func show_dialog():
 	type_tween.tween_callback(func():dialog_index+=1)
 
 
-func _on_save_pressed() -> void:
+func _on_save_pressed(slot:String) -> void:
 	var config=ConfigFile.new()
 	current_list=[]
 	config.set_value("game", "index", dialog_index)
@@ -190,14 +193,14 @@ func _on_save_pressed() -> void:
 			config.set_value(str(list.name),"pos",list.position)
 			config.set_value(str(list.name),"texture",list.get_child(0).texture)
 	config.set_value("char","name",current_list)
-	config.save("user://scores.cfg")
+	config.save("user://dialog"+slot+".cfg")
 
-func _on_load_pressed() -> void:
+func _on_load_pressed(slot:String) -> void:
 	
 	dialog_ui.mouse_filter=Control.MOUSE_FILTER_STOP
 	
 	var config=ConfigFile.new()
-	var err = config.load("user://scores.cfg")
+	var err = config.load("user://dialog"+slot+".cfg")
 	dialog_index = config.get_value("game", "index")
 	
 

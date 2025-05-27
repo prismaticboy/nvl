@@ -14,7 +14,7 @@ func _ready():
 func _on_gui_input(event,node:Panel):
 	if event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_LEFT:
 		update_bt_status()
-		load_bt_status()
+		save_bt_status()
 		
 		
 func get_content():
@@ -28,11 +28,12 @@ func get_content():
 		
 func update_bt_status():
 	$SubViewportContainer.get_shoot(get_tree().current_scene)
-	var time = Time.get_datetime_dict_from_system()
-	time.text = "时间:"+str(time.year)+"-"+str(time.month)+"-"+str(time.day)+" "+str(time.hour)+":"+str(time.minute)+":"+str(time.second)
+	var current_time = Time.get_datetime_dict_from_system()
+	time.text = "时间:"+str(current_time.year)+"-"+str(current_time.month)+"-"+str(current_time.day)+" "+str(current_time.hour)+":"+str(current_time.minute)+":"+str(current_time.second)
 	get_content()	
 	
 func save_bt_status():
+	
 	var config=ConfigFile.new()
 	config.set_value("bt", "number", number.text)
 	config.set_value("bt", "dialog_data", dialog_data.text)
@@ -50,7 +51,7 @@ func save_bt_status():
 	for picture in sub_viewport.get_children():
 		if picture is Sprite2D:
 			picture.queue_free()
-			
+	get_tree().root.get_node("DialogUi")._on_save_pressed(self.name)
 func load_bt_status():
 	var config=ConfigFile.new()
 	var err = config.load("user://bt"+name+".cfg")
