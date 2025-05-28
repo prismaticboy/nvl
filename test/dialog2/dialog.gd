@@ -162,6 +162,7 @@ func show_dialog():
 	var char_data = dialog_data[str(dialog_index)]["name"]
 	content.text=""
 	charname.text = char_data
+
 	if dialog_data[str(dialog_index)]["bg_animation"]!="":	
 		panel.scale=Vector2(0.8,0.8)
 		panel.modulate.a=0

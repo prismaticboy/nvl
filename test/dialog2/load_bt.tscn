@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv6x8ubd4sy1l"]
+
+[ext_resource type="Script" uid="uid://bxmkdgh0lrlki" path="res://test/dialog2/load_bt.gd" id="1_tb7pv"]
+[ext_resource type="FontFile" uid="uid://j3lj6v66mja3" path="res://test/dialog2/assert/font/NotoSansSC-Bold.ttf" id="2_itupw"]
+[ext_resource type="Script" uid="uid://ggxwb6j1wx13" path="res://test/dialog2/sub_viewport_container.gd" id="3_r78yl"]
+[ext_resource type="Texture2D" uid="uid://v5136xox28yv" path="res://test/dialog2/assert/BG/BG1.jpg" id="4_vcohh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfdil"]
+bg_color = Color(0.533524, 0.738281, 0.666296, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(1, 1, 1, 0)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltk6h"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="load_bt" type="Panel"]
+z_index = 1
+custom_minimum_size = Vector2(230, 128)
+offset_right = 464.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tfdil")
+script = ExtResource("1_tb7pv")
+
+[node name="number" type="Label" parent="."]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 24.0
+offset_right = 223.0
+offset_bottom = 47.0
+text = "NO.1"
+
+[node name="dialog_data" type="Label" parent="."]
+custom_minimum_size = Vector2(152, 40)
+layout_mode = 0
+offset_left = 184.0
+offset_top = 56.0
+offset_right = 456.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(0.363281, 0.363281, 0.363281, 1)
+theme_override_fonts/font = ExtResource("2_itupw")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_ltk6h")
+text = "你好啊我的朋友你好啊我的朋友你好啊我的朋友你你好啊我的朋友你"
+autowrap_mode = 3
+
+[node name="time" type="Label" parent="."]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 24.0
+offset_right = 449.0
+offset_bottom = 47.0
+text = "时间:---------- --:--"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 160.0
+offset_bottom = 105.0
+script = ExtResource("3_r78yl")
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(144, 81)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
+zoom = Vector2(0.125, 0.125)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 160.0
+offset_bottom = 104.0
+texture = ExtResource("4_vcohh")
+expand_mode = 1

@@ -1,18 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dswsyy4foubse"]
+[gd_scene load_steps=3 format=3 uid="uid://cm604v4jn3crr"]
 
-[ext_resource type="Script" uid="uid://cflqq7guupu5s" path="res://test/dialog2/save_ui.gd" id="1_4n5ad"]
+[ext_resource type="Script" uid="uid://ccgddjg225154" path="res://test/dialog2/load_ui.gd" id="1_7vqh1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4n5ad"]
-bg_color = Color(0.628662, 0.804688, 0.676794, 1)
+bg_color = Color(0.628662, 0.804688, 0.788185, 1)
 
-[node name="save_ui" type="Control"]
+[node name="load_ui" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_4n5ad")
+script = ExtResource("1_7vqh1")
 
 [node name="save_bg" type="Panel" parent="."]
 layout_mode = 1
@@ -28,7 +28,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 80
-text = "SAVE MENU"
+text = "LOAD MENU"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
