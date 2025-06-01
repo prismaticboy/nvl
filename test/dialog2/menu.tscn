@@ -47,7 +47,6 @@ shader_parameter/thickness = 10.0
 [node name="menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-mouse_filter = 2
 script = ExtResource("1_1iscv")
 
 [node name="Panel" type="Panel" parent="."]

@@ -54,14 +54,16 @@ func _on_gui_input(event,node:TextureRect):
 		if node.name=="save":
 			if $"../save_ui".visible==false:
 				$"../save_ui".show_save_menu()
+				menu_hide()
 			else:
 				$"../save_ui".hide_save_menu()
 		if node.name=="load":
 			if $"../load_ui".visible==false:
 				$"../load_ui".show_load_menu()
+				menu_hide()
 			else:
 				$"../load_ui".hide_load_menu()
-		
+		#			
 func menu_hide_init():
 	for bt in get_children():
 		if bt is TextureRect and bt.name!="menu":

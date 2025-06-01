@@ -1,0 +1,162 @@
+[gd_scene load_steps=11 format=3 uid="uid://dnfqqo2wsdii5"]
+
+[ext_resource type="Script" uid="uid://cs7s3d7enwkg1" path="res://test/dialog2/title.gd" id="1_5s17t"]
+[ext_resource type="Texture2D" uid="uid://c1k43gur1c5to" path="res://test/dialog2/assert/BG/jinsha.png" id="1_mrl6s"]
+[ext_resource type="FontFile" uid="uid://j3lj6v66mja3" path="res://test/dialog2/assert/font/NotoSansSC-Bold.ttf" id="2_qym7o"]
+[ext_resource type="Shader" uid="uid://b4gxxav247ip3" path="res://test/dialog2/title.gdshader" id="3_gww3u"]
+[ext_resource type="Texture2D" uid="uid://dhht2qbtiohtt" path="res://test/dialog2/assert/BG/qializai.png" id="4_8acjp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8acjp"]
+shader = ExtResource("3_gww3u")
+shader_parameter/size_effect = 0.5
+shader_parameter/speed = 0.8
+shader_parameter/highlight_strength = 0.5
+shader_parameter/color_mode_toggle = true
+shader_parameter/is_horizontal = true
+shader_parameter/pause_duration = 1.0
+
+[sub_resource type="Animation" id="Animation_qym7o"]
+resource_name = "tip_show"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect/tip:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2, 3),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5s17t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect/tip:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gww3u"]
+resource_name = "title_show"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.556863, 0.556863, 0.556863, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gww3u"]
+_data = {
+&"RESET": SubResource("Animation_5s17t"),
+&"tip_show": SubResource("Animation_qym7o"),
+&"title_show": SubResource("Animation_gww3u")
+}
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5s17t")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_mrl6s")
+
+[node name="L" type="TextureRect" parent="TextureRect"]
+material = SubResource("ShaderMaterial_8acjp")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -215.0
+offset_right = 248.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_8acjp")
+expand_mode = 1
+
+[node name="s" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5
+offset_top = -30.0
+offset_right = 91.5
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("2_qym7o")
+theme_override_font_sizes/font_size = 41
+text = "Qia Li Zai"
+
+[node name="tip" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.5
+offset_top = 101.5
+offset_right = 47.5
+offset_bottom = 124.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_qym7o")
+theme_override_font_sizes/font_size = 50
+text = "click to start"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gww3u")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)

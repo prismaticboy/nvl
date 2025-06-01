@@ -45,6 +45,8 @@ func parse_json(json_string:String):
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		diaplay_next_dialog()
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
+		$menu.menu_hide()
 #显示下一个对话
 func diaplay_next_dialog():
 	if dialog_index>dialog_data["max"]:
@@ -54,6 +56,7 @@ func diaplay_next_dialog():
 		content.text = dialog_data[str(dialog_index)]["content"]
 		dialog_index+=1
 		return
+	$menu.menu_hide()
 	show_bg()
 	show_char()
 	show_animation()
