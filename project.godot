@@ -12,9 +12,13 @@ config_version=5
 
 config/name="school_nvl"
 config/tags=PackedStringArray("developer")
-run/main_scene="uid://bcc6xmlbt05tf"
+run/main_scene="uid://dnfqqo2wsdii5"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Game="*res://test/dialog2/game.tscn"
 
 [display]
 

@@ -16,13 +16,8 @@ var type_tween:Tween
 
 func _ready() -> void:
 	diaplay_next_dialog()
-	var menu = get_node("menu")
-	#menu.save.connect(_on_save_pressed)
-	#menu.load.connect(_on_load_pressed)
 
-func hit():
-	print(123)	
-	
+
 #加载json数据	
 func load_data(index:int):
 	var file_path = "res://test/dialog2/assert/dialog_data/day1.json"
@@ -244,3 +239,4 @@ func _on_load_pressed(slot:String) -> void:
 	await get_tree().create_timer(0.25).timeout
 	
 	dialog_ui.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	
