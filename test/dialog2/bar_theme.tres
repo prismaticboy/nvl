@@ -1,0 +1,48 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://b8fp8w1sdq8q6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfdyn"]
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.75)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_np8fo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1t63"]
+content_margin_left = 20.0
+bg_color = Color(0.747466, 0.835938, 0.502869, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.345098, 0.345098, 0.345098, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjymk"]
+content_margin_left = 20.0
+bg_color = Color(0.34375, 0.34375, 0.34375, 1)
+border_color = Color(0.207843, 0.254902, 0.203922, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[resource]
+ScrollContainer/styles/focus = SubResource("StyleBoxFlat_dfdyn")
+ScrollContainer/styles/panel = SubResource("StyleBoxEmpty_np8fo")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_d1t63")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_d1t63")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_d1t63")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_rjymk")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_rjymk")

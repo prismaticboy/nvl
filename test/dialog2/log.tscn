@@ -1,0 +1,174 @@
+[gd_scene load_steps=5 format=3 uid="uid://yjhpgfbn57me"]
+
+[ext_resource type="Texture2D" uid="uid://dqikhv0xww2gi" path="res://test/dialog2/assert/UI/close.svg" id="1_dnm2y"]
+[ext_resource type="Theme" uid="uid://b8fp8w1sdq8q6" path="res://test/dialog2/bar_theme.tres" id="1_ybrw6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68mb3"]
+bg_color = Color(0.345098, 0.407843, 0.341176, 0.670588)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybrw6"]
+bg_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="log" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_68mb3")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+theme = ExtResource("1_ybrw6")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ybrw6")
+draw_focus_border = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(850, 450)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(850, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "你好啊我的朋友qweqweqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqaszdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdqqqqqqqqqqqqqqq"
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "你好啊我的朋友qweqweqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqaszdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdqqqqqqqqqqqqqqq"
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "你好啊我的朋友qweqweqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqaszdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdqqqqqqqqqqqqqqq"
+autowrap_mode = 3
+
+[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "你好啊我的朋友qweqweqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqaszdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdqqqqqqqqqqqqqqq"
+autowrap_mode = 3
+
+[node name="Label5" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "你好啊我的朋友qweqweqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqaszdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdqqqqqqqqqqqqqqq"
+autowrap_mode = 3
+
+[node name="Label6" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "你好啊我的朋友qweqweqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqaszdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdqqqqqqqqqqqqqqq"
+autowrap_mode = 3
+
+[node name="Label7" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "你好啊我的朋友qweqweqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqaszdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdqqqqqqqqqqqqqqq"
+autowrap_mode = 3
+
+[node name="Label8" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "你好啊我的朋友qweqweqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqaszdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdqqqqqqqqqqqqqqq"
+autowrap_mode = 3
+
+[node name="Label9" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "你好啊我的朋友qweqweqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqaszdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdqqqqqqqqqqqqqqq"
+autowrap_mode = 3
+
+[node name="Label10" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "你好啊我的朋友qweqweqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqaszdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdqqqqqqqqqqqqqqq"
+autowrap_mode = 3
+
+[node name="Label11" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "你好啊我的朋友qweqweqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqaszdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdqqqqqqqqqqqqqqq"
+autowrap_mode = 3
+
+[node name="Label12" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "你好啊我的朋友qweqweqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqaszdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdqqqqqqqqqqqqqqq"
+autowrap_mode = 3
+
+[node name="Label13" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "你好啊我的朋友qweqweqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqaszdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdqqqqqqqqqqqqqqq"
+autowrap_mode = 3
+
+[node name="Label14" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "你好啊我的朋友qweqweqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqaszdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdqqqqqqqqqqqqqqq"
+autowrap_mode = 3
+
+[node name="Label15" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "你好啊我的朋友qweqweqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqaszdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdqqqqqqqqqqqqqqq"
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 54.0
+offset_top = -34.0
+offset_right = 308.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 50
+text = "TEXTLOG"
+
+[node name="Close" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1022.0
+offset_top = 518.0
+offset_right = 1222.0
+offset_bottom = 718.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_dnm2y")

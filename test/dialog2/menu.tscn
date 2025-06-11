@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bncm2j60fd80m"]
+[gd_scene load_steps=13 format=3 uid="uid://bncm2j60fd80m"]
 
 [ext_resource type="Script" uid="uid://ugyr2lvycrtf" path="res://test/dialog2/menu.gd" id="1_1iscv"]
 [ext_resource type="PackedScene" uid="uid://bjto7ffuaq4f0" path="res://test/dialog2/texturebutton.tscn" id="2_pqshd"]
-[ext_resource type="Texture2D" uid="uid://belov4pmmg5a7" path="res://test/dialog2/assert/UI/menu.svg" id="3_shb0t"]
 [ext_resource type="Shader" uid="uid://dpkmduxtlrhaa" path="res://test/dialog2/setting.gdshader" id="4_k5exa"]
 [ext_resource type="Texture2D" uid="uid://bcv0ghfly3scn" path="res://test/dialog2/assert/UI/load.svg" id="5_cb23m"]
 [ext_resource type="Texture2D" uid="uid://b2wfkseqyealg" path="res://test/dialog2/assert/UI/save.svg" id="6_bcn7c"]
@@ -58,12 +57,6 @@ offset_right = 1066.0
 offset_bottom = 82.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mokkv")
-
-[node name="menu" parent="." instance=ExtResource("2_pqshd")]
-layout_mode = 0
-offset_right = 50.0
-offset_bottom = 50.0
-picture = ExtResource("3_shb0t")
 
 [node name="save" parent="." instance=ExtResource("2_pqshd")]
 material = SubResource("ShaderMaterial_rkjc8")
