@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bncm2j60fd80m"]
+[gd_scene load_steps=14 format=3 uid="uid://bncm2j60fd80m"]
 
 [ext_resource type="Script" uid="uid://ugyr2lvycrtf" path="res://test/dialog2/menu.gd" id="1_1iscv"]
 [ext_resource type="PackedScene" uid="uid://bjto7ffuaq4f0" path="res://test/dialog2/texturebutton.tscn" id="2_pqshd"]
 [ext_resource type="Shader" uid="uid://dpkmduxtlrhaa" path="res://test/dialog2/setting.gdshader" id="4_k5exa"]
+[ext_resource type="Texture2D" uid="uid://belov4pmmg5a7" path="res://test/dialog2/assert/UI/menu.svg" id="4_pqshd"]
 [ext_resource type="Texture2D" uid="uid://bcv0ghfly3scn" path="res://test/dialog2/assert/UI/load.svg" id="5_cb23m"]
 [ext_resource type="Texture2D" uid="uid://b2wfkseqyealg" path="res://test/dialog2/assert/UI/save.svg" id="6_bcn7c"]
 [ext_resource type="Texture2D" uid="uid://bw61nupjfrrvs" path="res://test/dialog2/assert/UI/log.svg" id="7_b06p8"]
@@ -18,6 +19,12 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mokkv"]
+shader = ExtResource("4_k5exa")
+shader_parameter/clr = Color(1, 1, 1, 0)
+shader_parameter/type = 1
+shader_parameter/thickness = 10.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rkjc8"]
 shader = ExtResource("4_k5exa")
@@ -37,12 +44,6 @@ shader_parameter/clr = Color(1, 1, 1, 0)
 shader_parameter/type = 1
 shader_parameter/thickness = 10.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mokkv"]
-shader = ExtResource("4_k5exa")
-shader_parameter/clr = Color(1, 1, 1, 0)
-shader_parameter/type = 1
-shader_parameter/thickness = 10.0
-
 [node name="menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -57,6 +58,13 @@ offset_right = 1066.0
 offset_bottom = 82.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mokkv")
+
+[node name="menu" parent="." instance=ExtResource("2_pqshd")]
+material = SubResource("ShaderMaterial_mokkv")
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("4_pqshd")
+picture = ExtResource("4_pqshd")
 
 [node name="save" parent="." instance=ExtResource("2_pqshd")]
 material = SubResource("ShaderMaterial_rkjc8")
