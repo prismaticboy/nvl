@@ -63,7 +63,12 @@ func _on_gui_input(event,node:TextureRect):
 				menu_hide()
 			else:
 				$"../load_ui".hide_load_menu()
-		#			
+		if node.name=="log":
+			if $"../log".visible==false:
+				$"../log".show_log_menu()
+				menu_hide()
+			else:
+				$"../log".hide_log_menu()
 func menu_hide_init():
 	for bt in get_children():
 		if bt is TextureRect and bt.name!="menu":

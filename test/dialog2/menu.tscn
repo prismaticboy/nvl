@@ -61,6 +61,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_mokkv")
 
 [node name="menu" parent="." instance=ExtResource("2_pqshd")]
 material = SubResource("ShaderMaterial_mokkv")
+layout_mode = 0
 offset_right = 50.0
 offset_bottom = 50.0
 texture = ExtResource("4_pqshd")

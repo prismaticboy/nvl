@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcc6xmlbt05tf"]
+[gd_scene load_steps=11 format=3 uid="uid://bcc6xmlbt05tf"]
 
 [ext_resource type="StyleBox" uid="uid://kcegclmthitl" path="res://test/dialog2/dialog_panel.tres" id="1_57mne"]
 [ext_resource type="Script" uid="uid://ba77si1ykfuxi" path="res://test/dialog2/dialog.gd" id="1_pyemm"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bncm2j60fd80m" path="res://test/dialog2/menu.tscn" id="3_sbvtq"]
 [ext_resource type="PackedScene" uid="uid://dswsyy4foubse" path="res://test/dialog2/save_ui.tscn" id="5_7gxoc"]
 [ext_resource type="PackedScene" uid="uid://cm604v4jn3crr" path="res://test/dialog2/load_ui.tscn" id="6_dneh8"]
+[ext_resource type="PackedScene" uid="uid://yjhpgfbn57me" path="res://test/dialog2/log.tscn" id="7_r51fu"]
 
 [sub_resource type="SystemFont" id="SystemFont_57mne"]
 
@@ -104,3 +105,15 @@ layout_mode = 1
 
 [node name="load_ui" parent="." instance=ExtResource("6_dneh8")]
 layout_mode = 1
+
+[node name="log" parent="." instance=ExtResource("7_r51fu")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1052.0
+offset_bottom = 548.0
+grow_horizontal = 1
+grow_vertical = 1

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://yjhpgfbn57me"]
 
-[ext_resource type="Texture2D" uid="uid://dqikhv0xww2gi" path="res://test/dialog2/assert/UI/close.svg" id="1_dnm2y"]
+[ext_resource type="Script" uid="uid://dl8l56cf2bm0e" path="res://test/dialog2/log.gd" id="1_16bw8"]
 [ext_resource type="Theme" uid="uid://b8fp8w1sdq8q6" path="res://test/dialog2/bar_theme.tres" id="1_ybrw6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68mb3"]
@@ -18,6 +18,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [node name="log" type="Panel"]
+custom_minimum_size = Vector2(1052, 548)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -27,7 +28,9 @@ offset_right = -50.0
 offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(526, 324)
 theme_override_styles/panel = SubResource("StyleBoxFlat_68mb3")
+script = ExtResource("1_16bw8")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 custom_minimum_size = Vector2(10, 10)
@@ -164,11 +167,11 @@ offset_bottom = 35.0
 theme_override_font_sizes/font_size = 50
 text = "TEXTLOG"
 
-[node name="Close" type="TextureRect" parent="."]
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
-offset_left = 1022.0
-offset_top = 518.0
-offset_right = 1222.0
-offset_bottom = 718.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_dnm2y")
+offset_left = 998.0
+offset_top = 494.0
+offset_right = 1098.0
+offset_bottom = 594.0
+text = "return"
