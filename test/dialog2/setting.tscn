@@ -15,3 +15,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="windows" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "窗口"
+
+[node name="music" type="Label" parent="Panel"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="effect" type="Label" parent="Panel"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="voice" type="Label" parent="Panel"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="text_speed" type="Label" parent="Panel"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="panel_alpha" type="Label" parent="Panel"]
+offset_right = 40.0
+offset_bottom = 23.0
