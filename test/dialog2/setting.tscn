@@ -1,12 +1,16 @@
-[gd_scene format=3 uid="uid://bhcsvpnl54kc5"]
+[gd_scene load_steps=2 format=3 uid="uid://bhcsvpnl54kc5"]
+
+[ext_resource type="Script" uid="uid://cb8p10eju18dk" path="res://test/dialog2/setting.gd" id="1_wq62e"]
 
 [node name="setting" type="Control"]
+modulate = Color(0.849609, 0.882117, 0.9375, 0.784314)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wq62e")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -23,21 +27,43 @@ offset_bottom = 23.0
 text = "窗口"
 
 [node name="music" type="Label" parent="Panel"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+text = "音量"
 
 [node name="effect" type="Label" parent="Panel"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+text = "音效"
 
 [node name="voice" type="Label" parent="Panel"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+text = "语音"
 
 [node name="text_speed" type="Label" parent="Panel"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+text = "文字速度"
 
 [node name="panel_alpha" type="Label" parent="Panel"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+text = "透明度"
+
+[node name="windows_bt" type="Button" parent="Panel"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "456"
+
+[node name="Button2" type="Button" parent="Panel"]
+layout_mode = 0
+offset_right = 36.0
+offset_bottom = 31.0
+text = "123"
